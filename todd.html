@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+<title></title>
+</head>
+
+<!--Google Font API-->
+<link href='https://fonts.googleapis.com/css?family=Changa+One' rel='stylesheet' type='text/css'>
+
+<!--Bootstrap CDN-->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+
+<!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+
+<!--Font Awesome CDN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!--Ionicons CDN-->
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+<!--jQuery CDN-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4QWxu39ztudg2F39NZ_cx9rrkGW15mxs&libraries=geometry,places,visualization,drawing">
+</script>
+<body>
+	
+<!--Start Of Container-->
+
+<div class="container">
+
+</div>
+
+<!--End of Container-->
+
+<script type="text/javascript">
+
+// var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
+//  var request = {
+//     location: pyrmont,
+//     radius: '500',
+//     types: ['store']
+//   };
+
+//   service = new google.maps.places.PlacesService();
+//   service.nearbySearch(request, function(res){
+//   	console.log(res)
+//   });
+
+var APIkey = "AIzaSyA4QWxu39ztudg2F39NZ_cx9rrkGW15mxs";
+var queryURL = "https://crossorigin.me/https://maps.googleapis.com/maps/api/js?key=" + APIkey + "libraries=geometry";
+
+$.ajax({
+	url: queryURL,
+	method: "get"
+
+})
+
+.done(function(response) {
+	console.log(response);
+});
+
+</script>
+
+</body>
+
+</html>
