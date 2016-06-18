@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NJ Train Schedule</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+  <script src="chat.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <center>
+        <h1>Train Times</h1>
+        <p>A timetable of all trains in the Garden State.</p>
+      </center>
+      <div class="row">
+          <div class="panel panel-primary">
+            <div class="panel-heading">   
+            Train Times
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Frequency (min)</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
+                  </tr>
+                </thead>
+                <tbody id="trainTable">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Add a Train</div>
+            <div class="panel-body">
+              <form>
+                <div class="form-group">
+                  <label for="name">Train Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="role">Destination</label>
+                  <input type="text" class="form-control" id="destination" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="dates">First Train of the Day (HH:mm)</label>
+                  <input type="text" class="form-control" id="fTrain" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="rate">Frequency (min)</label>
+                  <input type="text" class="form-control" id="frequency" placeholder="">
+                </div>  
+              <button type="submit" class="btn btn-primary" id="submit">Submit</button> 
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

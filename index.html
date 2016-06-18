@@ -9,6 +9,9 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
 </head>
 <body>
 
@@ -28,8 +31,12 @@
 <div class='container'>
   <div class="panel panel-success">
     <div class="panel-heading">Welcome</div>
-    <div class="panel-body">ProConnect is the #1 leading exclusive website ever made.</div>
+    <div class="panel-body">
+  <center>ProConnect is the #1 leading exclusive website ever made.<br><br>
+    <button class='btn btn-success' id='loginSC'>Login to SoundCloud</button> <br>
+  </center>
   </div>
+</div>
   <div class='row'>
     <div class='col-md-6'>
       <div class="panel panel-success">
@@ -44,6 +51,24 @@
       </div>
     </div>
   </div>
+
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class="panel panel-success">
+        <div class="panel-heading">Add yourself to the ProConnect User Database</div>
+        <center>
+          <div class="panel-body"><button class='btn btn-success' id='loginSC'>Join Database</button> <br></div>
+        </center>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class="panel panel-success">
+        <div class="panel-heading">Chat with Users</div>
+        <div class="panel-body">Chat goes here</div>
+      </div>
+    </div>
+  </div>
+
 
 <div class="row">
         <div class="panel panel-success">
@@ -65,7 +90,9 @@
 
 
 <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+
 <script>
+$("#loginSC").on("click", function() {
 SC.initialize({
   client_id: 'f75c419ee6109bbd9224c99f0f409fb0',
   redirect_uri: 'http://localhost:8000/callback.html'
@@ -81,15 +108,13 @@ SC.connect().then(function() {
 SC.get('/user/183/tracks').then(function(tracks){
   alert('Latest track: ' + tracks[0].title);
 });
+});
 
 </script>
 
 
 
 <div id="putTheWidgetHere"></div>
-
-
-
 
 
 <script type="text/javascript">
@@ -102,6 +127,17 @@ $("#submit").on("click", function() {
   return false;
 });
 
+</script>
+
+
+<script>
+var ref = new Firebase("https://theproconnect.firebaseio.com/");
+
+
+//only return new york
+ref.orderByChild("city").equalTo('New York City').on("child_added", function(snapshot) {
+  console.log(snapshot.val());  
+});
 </script>
 
 
