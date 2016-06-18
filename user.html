@@ -9,7 +9,7 @@
 
 <!--My Stylesheet-->
 
-<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+<!-- <link rel="stylesheet" type="text/css" href="assets/css/styles.css"> -->
 
 <!--Font Awesome CDN-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -36,21 +36,18 @@
 
 <div class="container">
 
-			<!-- Form Header-->
-
-			<div class="col-md-offset-8">
-				<div class="panel panel-default">
+<!--Modal-->
+<div class="jumbotron">
+	<div class="btn btn-success" data-popup-open="popup-1" href="#">Enter Music Credentials</div>
+ 
+	<div class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <div class="panel panel-default">
 					<div class="panel-heading formTop">
 						<h3 class="panel-title"><strong><i class="fa fa-music" aria-hidden="true"></i> Add Your Credentials</strong></h3>
 					</div>
 
 				<div class="panel-body">
-	
-				<!-- Start of Entry Form Body -->
-
-				
-
-				<!--Start of Dropdown-->
 
 				<!--Start of Dropdown-->
 
@@ -69,7 +66,7 @@
 						</div>
 
 						<div class="form-group">
-								<label for="pwd">Production Experience</label>
+								<label for="pwd">Production Experience:</label>
 									<select class="form-control" id="expInput">
 										<option hidden>Choose your experience level...</option>
 										<option value="Beginner">Beginner (0-2 Years Exp.)</option>
@@ -80,7 +77,7 @@
 						</div>
 
 						<div class="form-group">
-								<label for="pwd">Genre</label>
+								<label for="pwd">Genre:</label>
 									<select class="form-control" id="genreInput">
 										<option hidden>Choose a genre...</option>
 										<option value="House">House</option>
@@ -100,7 +97,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="">Email</label>
+							<label for="">Email:</label>
 							<input type="text" class="form-control" id="emailInput" placeholder="example@example.com">
 						</div>
 						
@@ -112,13 +109,24 @@
 
 
 				</div>
+       <!--  <p><a data-popup-close="popup-1" href="#">Close</a></p> -->
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>
+
+<!--End of Modal-->
+
+			<!-- Form Header-->
+
+			<div class="col-md-offset-8">
+				
 			</div>
 <!--End of Row-->
 
 		</div>	
 
 <!-- End of Jumbotron-->
-
+		</div>
 <!-- 	</div> -->
 
 <!--End of Container-->
@@ -142,6 +150,8 @@
 	tag = $('#tagInput').val();
 	email = $('#emailInput').val();
 
+//Pushes Data to Firebase
+
 	dataRef.push ({
 		city: city,
 		genre: genre,
@@ -153,9 +163,9 @@
 
 // Empties Form After Users Clicks Submit
 
-	$('#cityInput').val('');
-	$('#genreInput').val('');
-	$('#expInput').val('');
+	$('#cityInput').val('Choose a city...');
+	$('#genreInput').val('Choose a genre...');
+	$('#expInput').val('Choose your experience level...');
 	$('#tagInput').val('');
 	$('#emailInput').val('');
 
@@ -166,6 +176,87 @@ return false;
 
 </script>
 
+<script type="text/javascript">
+	
+
+$(function() {
+    //----- OPEN
+    $('[data-popup-open]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-open');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+ 
+        e.preventDefault();
+    });
+ 
+    //----- CLOSE
+    $('[data-popup-close]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+ 
+        e.preventDefault();
+    });
+});
+
+
+</script>
+
+<style type="text/css">
+	
+/* Outer */
+.popup {
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:rgba(0,0,0,0.75);
+}
+ 
+/* Inner */
+.popup-inner {
+    max-width:700px;
+    width:90%;
+    padding:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    box-shadow:0px 2px 6px rgba(0,0,0,1);
+    border-radius:3px;
+    background:#fff;
+}
+ 
+/* Close Button */
+.popup-close {
+    width:30px;
+    height:30px;
+    padding-top:4px;
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(0,0,0,0.8);
+    font-family:Arial, Sans-Serif;
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#fff;
+}
+ 
+.popup-close:hover {
+    -webkit-transform:translate(50%, -50%) rotate(180deg);
+    transform:translate(50%, -50%) rotate(180deg);
+    background:rgba(0,0,0,1);
+    text-decoration:none;
+}
+
+</style>
 
 </body>
 
