@@ -3,6 +3,67 @@
 	<title>Soundcloud Map</title>
 </head>
 <body>
+<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+<script>
+SC.initialize({
+  client_id: 'f75c419ee6109bbd9224c99f0f409fb0',
+  redirect_uri: 'http://localhost:8000/callback.html'
+});
+
+// initiate auth popup
+SC.connect().then(function() {
+  return SC.get('/me');
+}).then(function(me) {
+  alert('Hello, ' + me.username);
+});
+
+SC.get('/user/183/tracks').then(function(tracks){
+  alert('Latest track: ' + tracks[0].title);
+});
+
+</script>
+
+<div id="putTheWidgetHere"></div>
+<script type="text/javascript">
+
+
+  SC.oEmbed('http://soundcloud.com/tylerfallonmusic', {
+    element: document.getElementById('putTheWidgetHere')
+  });
+</script>
+
+
+<script>
+SC.initialize({
+      client_id: "YOUR_CLIENT_ID",
+      redirect_uri: "http://example.com/callback.html",
+  });
+
+/**
+Once that's done you are all set and ready to call the SoundCloud API. 
+**/
+
+/**
+Call to the SoundCloud API. 
+Retrieves list of tracks, and displays a list with links to the tracks showing 'tracktitle' and 'track duration'
+**/
+
+  var userId = 39090345; // user_id of Prutsonic
+
+  SC.get("/tracks", {
+      user_id: userId,
+      limit: 100
+  }, function (tracks) {
+
+
+
+      for (var i = 0; i < tracks.length; i++) {
+          console.log(tracks[i].title);
+      }
+
+  });
+  </script>
 
 </body>
 </html>
+
