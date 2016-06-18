@@ -24,8 +24,9 @@
 
 <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 
-<!-- Moment JS-->
-<!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </head>
 
@@ -33,40 +34,74 @@
 	
 <!--Start Of Container-->
 
-
 <div class="container">
 
 			<!-- Form Header-->
 
-			<div class="col-md-offset-8 text-center">
+			<div class="col-md-offset-8">
 				<div class="panel panel-default">
 					<div class="panel-heading formTop">
-						<h3 class="panel-title"><strong>Add Your Credentials</strong></h3>
+						<h3 class="panel-title"><strong><i class="fa fa-music" aria-hidden="true"></i> Add Your Credentials</strong></h3>
 					</div>
 
 				<div class="panel-body">
 	
 				<!-- Start of Entry Form Body -->
 
-					<form>
+				
+
+				<!--Start of Dropdown-->
+
+				<!--Start of Dropdown-->
+
+						<div class="form-group">
+								<label for="pwd">Nearest Major City:</label>
+									<select class="form-control" id="cityInput">
+										<option hidden>Choose a city...</option>
+										<option value="New York City">New York City</option>
+										<option value="Philadelphia">Philadelphia</option>
+										<option value="Dallas">Dallas</option>
+										<option value="Los Angeles">Los Angeles</option>
+										<option value="Boston">Boston</option>
+										<option value="Chicago">Chicago</option>
+										
+									</select>
+						</div>
+
+						<div class="form-group">
+								<label for="pwd">Production Experience</label>
+									<select class="form-control" id="expInput">
+										<option hidden>Choose your experience level...</option>
+										<option value="Beginner">Beginner (0-2 Years Exp.)</option>
+										<option value="Moderate">Moderate (3-6 Years Exp.)</option>
+										<option value="Expert">Expert (6+ Years Exp.)</option>
+										
+									</select>
+						</div>
+
+						<div class="form-group">
+								<label for="pwd">Genre</label>
+									<select class="form-control" id="genreInput">
+										<option hidden>Choose a genre...</option>
+										<option value="House">House</option>
+										<option value="Trap">Trap</option>
+										<option value="Chill">Chill</option>
+										<option value="Hip-Hop">Hip-Hop</option>
+										<option value="Dubstep">Dubstep</option>
+										<option value="Future">Future</option>
+										
+									</select>
+						</div>
+
+						<form>
 						<div class="form-group">
 							<label for="">Soundcloud Tag (Ex: @ttfmusic)</label>
-							<input type="text" class="form-control" id="tagInput">
+							<input type="text" class="form-control" id="tagInput" placeholder="Enter Soundcloud ID">
 						</div>
 
 						<div class="form-group">
-							<label for="">Nearest Major City</label>
-							<input type="text" class="form-control" id="cityInput">
-						</div>
-
-						<div class="form-group">
-							<label for="">Genre (Ex: House)</label>
-							<input type="text" class="form-control" id="genreInput">
-						</div>
-
-						<div class="form-group">
-							<label for="">Production Experience</label>
-							<input type="text" class="form-control" id="expInput">
+							<label for="">Email</label>
+							<input type="text" class="form-control" id="emailInput" placeholder="example@example.com">
 						</div>
 						
 						<button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
@@ -92,27 +127,37 @@
 
 <script type="text/javascript">
 
-	var tag = '';
 	var city = '';
 	var genre = '';
 	var experience = '';
+	var tag = '';
+	var email = '';
 
 	var dataRef = new Firebase ('https://theproconnect.firebaseio.com/');
 
 	$('#userSubmit').on('click', function() {
-	tag = $('#tagInput').val();
 	city = $('#cityInput').val();
 	genre = $('#genreInput').val();
 	experience = $('#expInput').val();
-
+	tag = $('#tagInput').val();
+	email = $('#emailInput').val();
 
 	dataRef.push ({
-		tag: tag,
 		city: city,
 		genre: genre,
-		experience: experience
+		experience: experience,
+		tag: tag,
+		email: email
 
 	});
+
+// Empties Form After Users Clicks Submit
+
+	$('#cityInput').val('');
+	$('#genreInput').val('');
+	$('#expInput').val('');
+	$('#tagInput').val('');
+	$('#emailInput').val('');
 
 return false;
 
