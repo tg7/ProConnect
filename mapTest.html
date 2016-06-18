@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      
+    </script>
+    <script >
+    console.log(true);
+    	var key = 'AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM';
+    	var queryURL = 'https://maps.googleapis.com/maps/api/staticmap?center=Berkeley,CA&zoom=14&size=400x400&key=' + key;
+
+    	$.ajax({
+    		url: "value",
+    		method: 'GET' 
+    	})
+    	.done(function(response){
+    		console.log(response);
+    	})
+    </script>
+  </body>
+</html>
