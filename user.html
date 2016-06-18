@@ -9,7 +9,7 @@
 
 <!--My Stylesheet-->
 
-<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+<!-- <link rel="stylesheet" type="text/css" href="assets/css/styles.css"> -->
 
 <!--Font Awesome CDN-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -24,8 +24,9 @@
 
 <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 
-<!-- Moment JS-->
-<!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </head>
 
@@ -33,40 +34,71 @@
 	
 <!--Start Of Container-->
 
-
 <div class="container">
 
-			<!-- Form Header-->
-
-			<div class="col-md-offset-8 text-center">
-				<div class="panel panel-default">
+<!--Modal-->
+<div class="jumbotron">
+	<div class="btn btn-success" data-popup-open="popup-1" href="#">Enter Music Credentials</div>
+ 
+	<div class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <div class="panel panel-default">
 					<div class="panel-heading formTop">
-						<h3 class="panel-title"><strong>Add Your Credentials</strong></h3>
+						<h3 class="panel-title"><strong><i class="fa fa-music" aria-hidden="true"></i> Add Your Credentials</strong></h3>
 					</div>
 
 				<div class="panel-body">
-	
-				<!-- Start of Entry Form Body -->
 
-					<form>
+				<!--Start of Dropdown-->
+
+						<div class="form-group">
+								<label for="pwd">Nearest Major City:</label>
+									<select class="form-control" id="cityInput">
+										<option hidden>Choose a city...</option>
+										<option value="New York City">New York City</option>
+										<option value="Philadelphia">Philadelphia</option>
+										<option value="Dallas">Dallas</option>
+										<option value="Los Angeles">Los Angeles</option>
+										<option value="Boston">Boston</option>
+										<option value="Chicago">Chicago</option>
+										
+									</select>
+						</div>
+
+						<div class="form-group">
+								<label for="pwd">Production Experience:</label>
+									<select class="form-control" id="expInput">
+										<option hidden>Choose your experience level...</option>
+										<option value="Beginner">Beginner (0-2 Years Exp.)</option>
+										<option value="Moderate">Moderate (3-6 Years Exp.)</option>
+										<option value="Expert">Expert (6+ Years Exp.)</option>
+										
+									</select>
+						</div>
+
+						<div class="form-group">
+								<label for="pwd">Genre:</label>
+									<select class="form-control" id="genreInput">
+										<option hidden>Choose a genre...</option>
+										<option value="House">House</option>
+										<option value="Trap">Trap</option>
+										<option value="Chill">Chill</option>
+										<option value="Hip-Hop">Hip-Hop</option>
+										<option value="Dubstep">Dubstep</option>
+										<option value="Future">Future</option>
+										
+									</select>
+						</div>
+
+						<form>
 						<div class="form-group">
 							<label for="">Soundcloud Tag (Ex: @ttfmusic)</label>
-							<input type="text" class="form-control" id="tagInput">
+							<input type="text" class="form-control" id="tagInput" placeholder="Enter Soundcloud ID">
 						</div>
 
 						<div class="form-group">
-							<label for="">Nearest Major City</label>
-							<input type="text" class="form-control" id="cityInput">
-						</div>
-
-						<div class="form-group">
-							<label for="">Genre (Ex: House)</label>
-							<input type="text" class="form-control" id="genreInput">
-						</div>
-
-						<div class="form-group">
-							<label for="">Production Experience</label>
-							<input type="text" class="form-control" id="expInput">
+							<label for="">Email:</label>
+							<input type="text" class="form-control" id="emailInput" placeholder="example@example.com">
 						</div>
 						
 						<button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
@@ -77,13 +109,24 @@
 
 
 				</div>
+       <!--  <p><a data-popup-close="popup-1" href="#">Close</a></p> -->
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>
+
+<!--End of Modal-->
+
+			<!-- Form Header-->
+
+			<div class="col-md-offset-8">
+				
 			</div>
 <!--End of Row-->
 
 		</div>	
 
 <!-- End of Jumbotron-->
-
+		</div>
 <!-- 	</div> -->
 
 <!--End of Container-->
@@ -92,27 +135,39 @@
 
 <script type="text/javascript">
 
-	var tag = '';
 	var city = '';
 	var genre = '';
 	var experience = '';
+	var tag = '';
+	var email = '';
 
 	var dataRef = new Firebase ('https://theproconnect.firebaseio.com/');
 
 	$('#userSubmit').on('click', function() {
-	tag = $('#tagInput').val();
 	city = $('#cityInput').val();
 	genre = $('#genreInput').val();
 	experience = $('#expInput').val();
+	tag = $('#tagInput').val();
+	email = $('#emailInput').val();
 
+//Pushes Data to Firebase
 
 	dataRef.push ({
-		tag: tag,
 		city: city,
 		genre: genre,
-		experience: experience
+		experience: experience,
+		tag: tag,
+		email: email
 
 	});
+
+// Empties Form After Users Clicks Submit
+
+	$('#cityInput').val('Choose a city...');
+	$('#genreInput').val('Choose a genre...');
+	$('#expInput').val('Choose your experience level...');
+	$('#tagInput').val('');
+	$('#emailInput').val('');
 
 return false;
 
@@ -121,6 +176,87 @@ return false;
 
 </script>
 
+<script type="text/javascript">
+	
+
+$(function() {
+    //----- OPEN
+    $('[data-popup-open]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-open');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+ 
+        e.preventDefault();
+    });
+ 
+    //----- CLOSE
+    $('[data-popup-close]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+ 
+        e.preventDefault();
+    });
+});
+
+
+</script>
+
+<style type="text/css">
+	
+/* Outer */
+.popup {
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:rgba(0,0,0,0.75);
+}
+ 
+/* Inner */
+.popup-inner {
+    max-width:700px;
+    width:90%;
+    padding:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    box-shadow:0px 2px 6px rgba(0,0,0,1);
+    border-radius:3px;
+    background:#fff;
+}
+ 
+/* Close Button */
+.popup-close {
+    width:30px;
+    height:30px;
+    padding-top:4px;
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(0,0,0,0.8);
+    font-family:Arial, Sans-Serif;
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#fff;
+}
+ 
+.popup-close:hover {
+    -webkit-transform:translate(50%, -50%) rotate(180deg);
+    transform:translate(50%, -50%) rotate(180deg);
+    background:rgba(0,0,0,1);
+    text-decoration:none;
+}
+
+</style>
 
 </body>
 
