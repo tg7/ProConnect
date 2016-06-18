@@ -2,24 +2,26 @@
 <html>
   <head>
     <style>
-      #map {
-        width: 500px;
-        height: 400px;
-      }
+      
     </style>
   </head>
   <body>
     <div id="map"></div>
     <script>
-      function initMap() {
-        var mapDiv = document.getElementById('map');
-        var map = new google.maps.Map(mapDiv, {
-          center: {lat: 44.540, lng: -78.546},
-          zoom: 8
-        });
-      }
+      
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
-        async defer></script>
+    <script >
+    console.log(true);
+    	var key = 'AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM';
+    	var queryURL = 'https://maps.googleapis.com/maps/api/staticmap?center=Berkeley,CA&zoom=14&size=400x400&key=' + key;
+
+    	$.ajax({
+    		url: "value",
+    		method: 'GET' 
+    	})
+    	.done(function(response){
+    		console.log(response);
+    	})
+    </script>
   </body>
 </html>
