@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<head>
+<title>ProConnect</title>
+
+<!--Bootstrap CDN-->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!--My Stylesheet-->
+
+<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+<!--Font Awesome CDN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!--Ionicons CDN-->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+<!--jQuery CDN-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<!--Firebase CDN-->
+
+<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+
+<!-- Latest compiled and minified Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	
+<!--Start Of Container-->
+
+<div class="container">
+
+<!--Modal-->
+<div class="jumbotron">
+	<div class="btn btn-success" data-popup-open="popup-1" href="#" id="mainModal">Enter Music Credentials</div>
+ 
+	<div class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <div class="panel panel-default">
+					<div class="panel-heading formTop">
+						<h3 class="panel-title"><strong><i class="fa fa-music" aria-hidden="true"></i> Add Your Credentials</strong></h3>
+					</div>
+
+				<div class="panel-body">
+
+				<!--Start of Dropdown-->
+
+						<div class="form-group">
+								<label for="pwd">Nearest Major City:</label>
+									<select class="form-control" id="cityInput">
+										<option hidden>Choose a city...</option>
+										<option value="New York City">New York City</option>
+										<option value="Philadelphia">Philadelphia</option>
+										<option value="Dallas">Dallas</option>
+										<option value="Los Angeles">Los Angeles</option>
+										<option value="Boston">Boston</option>
+										<option value="Chicago">Chicago</option>
+										
+									</select>
+						</div>
+
+						<div class="form-group">
+								<label for="pwd">Production Experience:</label>
+									<select class="form-control" id="expInput">
+										<option hidden>Choose your experience level...</option>
+										<option value="Beginner">Beginner (0-2 Years Exp.)</option>
+										<option value="Moderate">Moderate (3-6 Years Exp.)</option>
+										<option value="Expert">Expert (6+ Years Exp.)</option>
+										
+									</select>
+						</div>
+
+						<div class="form-group">
+								<label for="pwd">Genre:</label>
+									<select class="form-control" id="genreInput">
+										<option hidden>Choose a genre...</option>
+										<option value="House">House</option>
+										<option value="Trap">Trap</option>
+										<option value="Chill">Chill</option>
+										<option value="Hip-Hop">Hip-Hop</option>
+										<option value="Dubstep">Dubstep</option>
+										<option value="Future">Future</option>
+										
+									</select>
+						</div>
+
+						<form>
+						<div class="form-group">
+							<label for="">Soundcloud Tag (Ex: @ttfmusic)</label>
+							<input type="text" class="form-control" id="tagInput" placeholder="Enter Soundcloud ID">
+						</div>
+
+						<div class="form-group">
+							<label for="">Email:</label>
+							<input type="text" class="form-control" id="emailInput" placeholder="example@example.com">
+						</div>
+						
+						<button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
+					</form>
+
+				</div>
+
+				</div>
+       <!--  <p><a data-popup-close="popup-1" href="#">Close</a></p> -->
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>
+
+<!--End of Modal-->
+
+			<!-- Form Header-->
+
+			<div class="col-md-offset-8">
+				
+			</div>
+<!--End of Row-->
+
+		</div>	
+
+<!-- End of Jumbotron-->
+		</div>
+<!-- 	</div> -->
+
+<!--End of Container-->
+
+</div>
+
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+
+</body>
+
+</html>
