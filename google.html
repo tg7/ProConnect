@@ -16,23 +16,78 @@
     <script>
       // Declare Map variable 
       var map;
+      var markersData =[
+      {
+        lat:40.7128,
+        lng:-74.0059,
+        name:" New York"
+      },
+      {
+        lat:42.3132878,
+        lng:-71.197586,
+        name:"Boston"
+      },
+      {
+        lat:34.0201797,
+        lng:-118.6926154,
+        name:"Los Angeles"
+      },
+      {
+        lat:41.8333909,
+        lng:-88.0130334,
+        name:'Chicago'
+      },
+      {
+        lat:32.8203509,
+        lng:-97.0122232,
+        name:'Dallas'
+      },{
+        lat:40.004668,
+        lng:-75.2584623,
+        name:'Philadelphia'
+      }];
+      //display markers 
+      function displayMarkers(){
+        console.log(true);
+       // this variable sets the map bounds and zoom level according to markers position
+       var bounds = new google.maps.LatLngBounds();
+
+       //for loop to set markers 
+       for(var i = 0; i < markersData.length; i++){
+        var latlng = new google.maps.LatLng(markersData[i].lat, markersData[i].lng);
+        var name = markersData[i].name;
+        //create markers 
+        createMarkers(latlng,name);
+        //Marker’s Lat. and Lng. values are added to bounds variable
+        bounds.extend(latlng); 
+       }
+       map.fitBounds(bounds);
+      };
+      //create Marker
+      function createMarkers(latlng,name){
+        var marker = new google.maps.Marker({
+          map: map,
+          position: latlng,
+          title: name
+        });
+      };
       // display the map 
       function initialize() {
         // Set the map options 
         var mapOptions = {
         zoom: 2,
-        center: {lat: -33.865427, lng: 151.196123},
+        center: {lat: 36.1998698, lng: -113.7912721},
         mapTypeId: google.maps.MapTypeId.TERRAIN
       };
         // using the google maps library to set the map div = to the map variable 
         map = new google.maps.Map(document.getElementById('map'),
         mapOptions);
-
+        displayMarkers();
         // Create a <script> tag and set the USGS URL as the source.
-        var script = document.createElement('script');
+       // var script = document.createElement('script');
         // setting the script source.  Which will be a json file or a firebase file.  Counters that adjust when information is
-        script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
-        document.getElementsByTagName('head')[0].appendChild(script);
+       // script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+        //document.getElementsByTagName('head')[0].appendChild(script);
         //setting the circle size on the map 
         map.data.setStyle(function(feature) {
         var magnitude = feature.getProperty('mag');
@@ -53,14 +108,10 @@
         };
       return circle;
       }
-      //adding 
+      //adding add specific markers 
       function eqfeed_callback(results) {
         map.data.addGeoJson(results);
       }
-<<<<<<< HEAD
-=======
-      // double check event
->>>>>>> c5c4f48ce30de222786336b2ce15bc4566e018ab
 
       google.maps.event.addDomListener(window, 'load', initialize);
       </script>
