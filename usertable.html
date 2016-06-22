@@ -15,6 +15,14 @@
 </head>
 <body>
 
+<div id='dallascity'></div>
+<div id='newyorkcity'></div>
+<div id='philadelphiacity'></div>
+<div id='losangelescity'></div>
+<div id='bostoncity'></div>
+<div id='chicagocity'></div>
+
+
 
 <button id='userButton'>Sort by Dallas</button>
 <div id='data'></div>
@@ -45,6 +53,50 @@ $('#userSubmit').click(function() {
         $('#data').html('Dallas')
         console.log(response);
       });
+
+
+
+dataRef.on("child_added", function(snapshot){
+
+  var city = snapshot.val().city;
+  var genre = snapshot.val().genre;
+  var experience = snapshot.val().experience;
+  var tag = snapshot.val().tag;
+  var email = snapshot.val().email;
+  var tableRow = $('<tr>'); 
+
+  var trainInfo = [snapshot.val().city, snapshot.val().genre, snapshot.val().experience, snapshot.val().tag, snapshot.val().email];
+  //create a for loop to easily create a new table data with  the HTMl from the inputed value 
+    for(var i = 0; i < trainInfo.length;i++){
+    // create a new td
+    var tableData = $('<td>');
+    // add the information from the array to the HTMl of this td
+    tableData.html(trainInfo[i]);
+    // give it an attribute for save measure 
+    tableData.attr('data-id', i);
+    // append current td to table row 
+    tableRow.append(tableData)
+  }
+  // append the new row to the last child of the table body
+  $('#userTable').append(tableRow);
+  var cityData = snapshot.val().city;
+  var tagData = snapshot.val().tag;
+      if ($('#cityInput').val() == 'Dallas') {
+        if (city == 'Dallas') {
+        console.log('Success!')
+        console.log(tagData);
+        $('#dallascity').append('<br>' + tagData + '<br>');
+      };
+    
+
+  // return false to prevent constant returning
+  return false;
+// Handle the errors
+};
+
+      
+      });
+
     });
 
 </script>
