@@ -1,4 +1,41 @@
+body {
 
+	background: url('../images/bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+
+html {
+
+
+}
+
+.navMain {
+
+padding: 5px;
+
+}
+
+
+.logoText {
+	font-family: 'Lobster', cursive;
+}
+
+.blackBg {
+	background: rgba(0, 0, 0, 0.5);
+
+}
+
+.jumbotron {
+
+	height:;
+}
+
+/*.mainModal {
+
+	text-align: left;
+}*/
 /* Modal CSS */
 
 /* Outer */
@@ -53,4 +90,33 @@
     transform:translate(50%, -50%) rotate(180deg);
     background:rgba(0,0,0,1);
     text-decoration:none;
+}
+
+
+.center {
+
+	text-align: center;
+}
+
+.footer {
+
+	background-color: black;
+	margin-top: 250px;
+	overflow: auto;
+}
+
+
+/* Fonts */
+
+h1, h2, h3, h4, h5 {
+
+color: white;
+
+
+}
+
+img {
+
+	background: rgba(0, 0, 0, 0.5);
+
 }
