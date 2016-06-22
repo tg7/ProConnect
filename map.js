@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-       #map {
-        width: 100%;
-        height: 400px;
-      }
-    </style>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
-     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM&callback=initialize">
-    </script>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script>
-      // Declare Map variable 
+ // be sure to add a div variable & to call the Google maps API
+ /*<script async defer 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM&callback=initialize">*/
+ // Declare Map variable 
+     // Declare Map variable 
       var map;
       var markersData =[
       {
@@ -121,7 +106,3 @@
       
 
       google.maps.event.addDomListener(window, 'load', initialize);
-      </script>
-   
-  </body>
-</html>
