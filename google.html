@@ -79,6 +79,15 @@
 
           map: map,
           position: latlng,
+          icon:{
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 25,
+            fillColor: 'red',
+            fillOpacity:.3,
+            strokeColor: 'black',
+            strokeWeight: .5
+          },
+          
           title: name
         });
       };
@@ -86,7 +95,7 @@
       function initialize() {
         // Set the map options 
         var mapOptions = {
-        zoom: 5,
+        zoom: 4,
         center: {lat: 36.1998698, lng: -100.7912721},
         mapTypeId: google.maps.MapTypeId.TERRAIN
       };
