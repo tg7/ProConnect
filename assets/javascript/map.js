@@ -3,6 +3,7 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM&callback=initialize">*/
  // Declare Map variable 
      // Declare Map variable 
+     console.log(true);
       var map;
       var markersData =[
       {
