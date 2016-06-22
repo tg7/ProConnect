@@ -23,6 +23,8 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#">About</a></li>
+      <li><a href="usertable.html">Usertable</a></li>
+      <li><a href="userstable.html">Userstable</a></li>
       <li><a href="#">Contact</a></li> 
       <li><a href="#">Search</a></li> 
     </ul>
@@ -196,8 +198,44 @@ return false;
 
 });
 
+  dataRef.on("child_added", function(snapshot){
+  var city = snapshot.val().city;
+  var genre = snapshot.val().genre;
+  var experience = snapshot.val().experience;
+  var tag = snapshot.val().tag;
+  var email = snapshot.val().email;
+
+  $("#trainTable").append("<tr><td>" + city + "</td><td>" + genre + "</td><td>" + experience + "</td><td>" + tag + "</td><td>" + email + "</td></tr>");
+});
 
 </script>
+
+
+
+      <div class="row">
+          <div class="panel panel-success">
+            <div class="panel-heading">   
+            Users
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>City</th>
+                    <th>Genre</th>
+                    <th>Experience</th>
+                    <th>Tag</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody id="trainTable">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
 
 <script type="text/javascript">
   
@@ -294,6 +332,7 @@ $(function() {
 
 
 <div class="row">
+  <div class='col-md-12'>
         <div class="panel panel-success">
           <div class="panel-heading">User Search</div>
             <div class="panel-body">
