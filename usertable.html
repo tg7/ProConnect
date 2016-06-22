@@ -42,7 +42,6 @@ $('#userSubmit').click(function() {
       var queryUrl = 'https://theproconnect.firebaseio.com/.json?orderBy=%22city%22&equalTo=%22' + city + '%22';
       $.ajax({url: queryUrl, method:'GET'})
       .done(function(response){
-        $('#data').html('Dallas')
         console.log(response);
       });
     });
@@ -71,6 +70,10 @@ $('#userSubmit').click(function() {
             </div>
           </div>
         </div>
+
+<div id='div1'></div>
+<div id='div2'></div>
+<div id='div3'></div>
 
 <script type="text/javascript">
 
@@ -141,8 +144,9 @@ return false;
 }, function(errorObject){
   console.log("Errors handled: " + errorObject.code)
 
-
 });
+
+
 
 </script>
 
