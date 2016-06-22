@@ -1,0 +1,94 @@
+<html>
+<head>
+  <title>Soundcloud Map</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
+</head>
+<body>
+
+<div class="row">
+          <div class="panel panel-success">
+            <div class="panel-heading">   
+            Users
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>City</th>
+                    <th>Genre</th>
+                    <th>Experience</th>
+                    <th>Tag</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody id="userTable">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+<script type="text/javascript">
+
+  var city = '';
+  var genre = '';
+  var experience = '';
+  var tag = '';
+  var email = '';
+
+  var dataRef = new Firebase ('https://theproconnect.firebaseio.com/');
+
+  $('#userSubmit').on('click', function() {
+  city = $('#cityInput').val();
+  genre = $('#genreInput').val();
+  experience = $('#expInput').val();
+  tag = $('#tagInput').val();
+  email = $('#emailInput').val();
+
+//Pushes Data to Firebase
+
+  dataRef.push ({
+    city: city,
+    genre: genre,
+    experience: experience,
+    tag: tag,
+    email: email
+
+  });
+
+// Empties Form After Users Clicks Submit
+
+  $('#cityInput').val('Choose a city...');
+  $('#genreInput').val('Choose a genre...');
+  $('#expInput').val('Choose your experience level...');
+  $('#tagInput').val('');
+  $('#emailInput').val('');
+
+return false;
+
+});
+
+  dataRef.on("child_added", function(snapshot){
+  var city = snapshot.val().city;
+  var genre = snapshot.val().genre;
+  var experience = snapshot.val().experience;
+  var tag = snapshot.val().tag;
+  var email = snapshot.val().email;
+
+  $("#userTable").append("<tr><td>" + city + "</td><td>" + genre + "</td><td>" + experience + "</td><td>" + tag + "</td><td>" + email + "</td></tr>");
+});
+
+</script>
+
+</body>
+</html>
