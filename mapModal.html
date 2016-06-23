@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<head>
+<title>Map Connect </title>
+
+<!--Bootstrap CDN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!--My Stylesheet-->
+
+<!-- <link rel="stylesheet" type="text/css" href="assets/css/styles.css"> -->
+
+<!--Font Awesome CDN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!--Ionicons CDN-->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+<!--jQuery CDN-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+
+<!-- Google Maps API -->
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM&callback=initialize">
+    </script>
+  <!-- custom js -->
+  <script src ="assets/javascript/map.js"></script>
+</head>
+
+<body>
+	
+<!--Start Of Container-->
+
+<div class="container">
+
+<!--Modal-->
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg mapbutton" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body" id="map">
+            <br>
+            <br>
+            <br>
+            <br>
+      </div>
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--End of Modal-->
+
+			
+
+
+
+		</div>
+<!-- 	</div> -->
+
+<!--End of Container-->
+
+</div>
+<script src="assets/javascript/map.js"></script>
+<!-- <script type="text/javascript">
+
+	var city = '';
+	var genre = '';
+	var experience = '';
+	var tag = '';
+	var email = '';
+
+	var dataRef = new Firebase ('https://theproconnect.firebaseio.com/');
+
+	$('#userSubmit').on('click', function() {
+	city = $('#cityInput').val();
+	genre = $('#genreInput').val();
+	experience = $('#expInput').val();
+	tag = $('#tagInput').val();
+	email = $('#emailInput').val();
+
+//Pushes Data to Firebase
+
+	dataRef.push ({
+		city: city,
+		genre: genre,
+		experience: experience,
+		tag: tag,
+		email: email
+
+	});
+
+// Empties Form After Users Clicks Submit
+
+	$('#cityInput').val('Choose a city...');
+	$('#genreInput').val('Choose a genre...');
+	$('#expInput').val('Choose your experience level...');
+	$('#tagInput').val('');
+	$('#emailInput').val('');
+
+return false;
+
+});
+
+
+</script>-->
+<!-- Keep popup function on the page.  I may be able to add it to the javascript program -->
+<!-- <script type="text/javascript">
+	
+
+// $(function() {
+//     //----- OPEN
+//     $('[data-popup-open]').on('click', function(e)  {
+//         var targeted_popup_class = jQuery(this).attr('data-popup-open');
+//         $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+ 
+//         e.preventDefault();
+//     });
+ 
+//     //----- CLOSE
+//     $('[data-popup-close]').on('click', function(e)  {
+//         var targeted_popup_class = jQuery(this).attr('data-popup-close');
+//         $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+ 
+//         e.preventDefault();
+//     });
+// });
+
+
+
+// Start of Validation JS
+
+$('#form').validator().on('submit', function (e) {
+  if (e.isDefaultPrevented()) {
+    // handle the invalid form...
+  } else {
+    // everything looks good!
+  }
+})
+
+</script> -->
+
+<style type="text/css">
+#map{
+  height: 400px;
+}
+/* Outer */
+.popup {
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:rgba(0,0,0,0.75);
+}
+ 
+/* Inner */
+.popup-inner {
+    max-width:700px;
+    width:95%;
+    padding:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    box-shadow:0px 2px 6px rgba(0,0,0,1);
+    border-radius:3px;
+    background:#fff;
+}
+ 
+/* Close Button */
+.popup-close {
+    width:30px;
+    height:30px;
+    padding-top:4px;
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(0,0,0,0.8);
+    font-family:Arial, Sans-Serif;
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#fff;
+}
+ 
+.popup-close:hover {
+    -webkit-transform:translate(50%, -50%) rotate(180deg);
+    transform:translate(50%, -50%) rotate(180deg);
+    background:rgba(0,0,0,1);
+    text-decoration:none;
+}
+
+</style>
+
+<!-- <form data-toggle="validator" role="form">
+  <div class="form-group">
+    <label for="inputName" class="control-label">Name</label>
+    <input type="text" class="form-control" id="inputName" placeholder="Cina Saffary" required>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="inputTwitter" class="control-label">Twitter</label>
+    <div class="input-group">
+      <span class="input-group-addon">@</span>
+      <input type="text" pattern="^[_A-z0-9]{1,}$" maxlength="15" class="form-control" id="inputTwitter" placeholder="1000hz" required>
+    </div>
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    <div class="help-block with-errors">Hey look, this one has feedback icons!</div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail" class="control-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="Bruh, that email address is invalid" required>
+    <div class="help-block with-errors"></div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="control-label">Password</label>
+    <div class="form-group col-sm-6">
+      <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+      <div class="help-block">Minimum of 6 characters</div>
+    </div>
+    <div class="form-group col-sm-6">
+      <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
+      <div class="help-block with-errors"></div>
+    </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="radio">
+      <label>
+        <input type="radio" name="underwear" required>
+        Boxers
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="underwear" required>
+        Briefs
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" id="terms" data-error="Before you wreck yourself" required>
+        Check yourself
+      </label>
+      <div class="help-block with-errors"></div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form> -->
+
+</body>
+
+</html>

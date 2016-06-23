@@ -11,31 +11,134 @@ html {
 
 }
 
+li {
+
+	display: inline-block;
+
+}
+
+ul {
+
+	margin: 0px;
+	padding: 0px;
+}
+
+
+img {
+
+	background: rgba(0, 0, 0, 0.5);
+
+}
+
+/* Classes */
+
+.front {
+
+	z-index: 2;
+}
+
+.hollow {
+
+	background: rgba (0, 0, 0, 0.5);
+	border: solid 1px white;
+	color: white;
+
+}
+
+.hollow:hover {
+
+	background: rgba(18, 169, 154, 1);
+	color: white;
+}
+
 .navMain {
 
 padding: 5px;
 
 }
 
+.jumbotron {
+
+	height: 600px;
+
+}
 
 .logoText {
 	font-family: 'Lobster', cursive;
+	vertical-align: text-bottom;
+/*	margin-top: 10px;*/
 }
 
 .blackBg {
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.0);
+	margin: 0px;
+	padding: 0px;
 
 }
 
-.jumbotron {
+.center {
 
-	height:;
+	text-align: center;
 }
 
-/*.mainModal {
+.footer {
+
+	background-color: black;
+	margin-top: 20px;
+
+}
+
+.logoSpace {
+
+	padding: 3px;
+}
+
+.imageSpace {
+
+	padding: 10px;
+}
+
+.imageCorners {
+
+	border-radius: 30px;
+	border: solid grey 1px;
+}
+
+img:hover {
+
+	background: rgba(250, 250, 250, 0.8);
+	border-radius: 30px;
+
+}
+
+.footerText {
+
+	margin: 20px 0px 20px 0px;
+}
+
+.topBorder {
+
+	border-top: solid 3px grey;
+	padding: 10px;
+
+}
+
+.bottom {
+	background-color: black;
+	color: white;
+}
+
+.userInput {
+
+	margin-top: 45px;
+	width: 500px;
+}
+
+.leftAlign {
 
 	text-align: left;
-}*/
+}
+
 /* Modal CSS */
 
 /* Outer */
@@ -91,32 +194,12 @@ padding: 5px;
     background:rgba(0,0,0,1);
     text-decoration:none;
 }
-
-
-.center {
-
-	text-align: center;
-}
-
-.footer {
-
-	background-color: black;
-	margin-top: 250px;
-	overflow: auto;
-}
-
-
 /* Fonts */
 
 h1, h2, h3, h4, h5 {
 
 color: white;
 
-
 }
 
-img {
 
-	background: rgba(0, 0, 0, 0.5);
-
-}
