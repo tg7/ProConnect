@@ -11,15 +11,15 @@ html {
 
 }
 
-
 li {
 
 	display: inline-block;
-	padding: 10px;
+
 }
 
 ul {
 
+	margin: 0px;
 	padding: 0px;
 }
 
@@ -32,18 +32,47 @@ img {
 
 /* Classes */
 
+.front {
+
+	z-index: 2;
+}
+
+.hollow {
+
+	background: rgba (0, 0, 0, 0.5);
+	border: solid 1px white;
+	color: white;
+
+}
+
+.hollow:hover {
+
+	background: rgba(18, 169, 154, 1);
+	color: white;
+}
+
 .navMain {
 
 padding: 5px;
 
 }
 
+.jumbotron {
+
+	height: 600px;
+
+}
+
 .logoText {
 	font-family: 'Lobster', cursive;
+	vertical-align: text-bottom;
+/*	margin-top: 10px;*/
 }
 
 .blackBg {
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.0);
+	margin: 0px;
+	padding: 0px;
 
 }
 
@@ -55,14 +84,18 @@ padding: 5px;
 .footer {
 
 	background-color: black;
-	margin-top: 250px;
-	/*overflow: auto;*/
+	margin-top: 20px;
 
+}
+
+.logoSpace {
+
+	padding: 3px;
 }
 
 .imageSpace {
 
-	padding: 3px;
+	padding: 10px;
 }
 
 .imageCorners {
@@ -94,6 +127,18 @@ img:hover {
 	background-color: black;
 	color: white;
 }
+
+.userInput {
+
+	margin-top: 45px;
+	width: 500px;
+}
+
+.leftAlign {
+
+	text-align: left;
+}
+
 /* Modal CSS */
 
 /* Outer */
