@@ -43,6 +43,8 @@
         name:'Philadelphia',
         number:10
       }];
+      // on click function
+
       //display markers 
       function displayMarkers(){
         console.log(true);
@@ -93,17 +95,23 @@
       function initialize() {
         // Set the map options 
         var mapOptions = {
-        zoom: 4,
         center: {lat: 36.1998698, lng: -100.7912721},
+        zoom: 9,
         mapTypeId: google.maps.MapTypeId.TERRAIN
       };
         // using the google maps library to set the map div = to the map variable 
-        map = new google.maps.Map(document.getElementById('map'),
+        map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
         displayMarkers();
       
       }
+      // This loads my map on the modal 
+      $("#myModal").on("shown.bs.modal", function () {
+        var currentCenter = map.getCenter();  // Get current center before resizing
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(currentCenter); 
+      });// Re-set previous cente});
       // setting the size of a circle using the inforamtion from the json call
       
 
-      google.maps.event.addDomListener(window, 'load', initialize);
+

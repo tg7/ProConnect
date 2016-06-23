@@ -18,12 +18,15 @@
 <!--jQuery CDN-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
-<
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+
 <!-- Google Maps API -->
  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM&callback=initialize">
     </script>
+  <!-- custom js -->
+  <script src ="assets/javascript/map.js"></script>
 </head>
 
 <body>
@@ -33,29 +36,32 @@
 <div class="container">
 
 <!--Modal-->
-	<div class="btn btn-success" data-popup-open="popup-1" href="#">Google Maps</div>
- 
-	<div class="popup" data-popup="popup-1">
-    <div class="popup-inner">
-        <div class="panel panel-default">
-  				<div class="panel-body map">
-  										
-        <!--Close Panel Body  -->
-  				</div>
-				</div>
-       <!--  <p><a data-popup-close="popup-1" href="#">Close</a></p> -->
-        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg mapbutton" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body" id="map">
+            <br>
+            <br>
+            <br>
+            <br>
+      </div>
+     
+      </div>
     </div>
+  </div>
 </div>
 
 <!--End of Modal-->
 
-			<!-- Form Header-->
+			
 
-			<div class="col-md-offset-8">
-				
-			</div>
-<!--End of Row-->
 
 
 		</div>
@@ -108,26 +114,26 @@ return false;
 
 </script>-->
 <!-- Keep popup function on the page.  I may be able to add it to the javascript program -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	
 
-$(function() {
-    //----- OPEN
-    $('[data-popup-open]').on('click', function(e)  {
-        var targeted_popup_class = jQuery(this).attr('data-popup-open');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+// $(function() {
+//     //----- OPEN
+//     $('[data-popup-open]').on('click', function(e)  {
+//         var targeted_popup_class = jQuery(this).attr('data-popup-open');
+//         $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
  
-        e.preventDefault();
-    });
+//         e.preventDefault();
+//     });
  
-    //----- CLOSE
-    $('[data-popup-close]').on('click', function(e)  {
-        var targeted_popup_class = jQuery(this).attr('data-popup-close');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+//     //----- CLOSE
+//     $('[data-popup-close]').on('click', function(e)  {
+//         var targeted_popup_class = jQuery(this).attr('data-popup-close');
+//         $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
  
-        e.preventDefault();
-    });
-});
+//         e.preventDefault();
+//     });
+// });
 
 
 
@@ -141,10 +147,12 @@ $('#form').validator().on('submit', function (e) {
   }
 })
 
-</script>
+</script> -->
 
 <style type="text/css">
-	
+#map{
+  height: 400px;
+}
 /* Outer */
 .popup {
     width:100%;
