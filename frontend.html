@@ -31,6 +31,14 @@
 
 <!-- Latest compiled and minified Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Google Maps API -->
+ <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM&callback=initialize">-->
+
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM">
+
+ </script>
+  <!-- custom js for Map-->
+  <script src ="assets/javascript/map.js"></script>
 
 </head>
 
@@ -81,7 +89,9 @@
   <br>
 
     <div class="btn btn-lg btn-success" data-popup-open="popup-1" id="dataButton">Sign Up!</div>
-    <div class="btn btn-lg hollow">Show User Map</div>
+    <button type="button" class="btn btn-primary btn-lg mapbutton" data-toggle="modal" data-target="#myModal">
+      Show User Map
+    </button>
     
     <div class="container text-center userInput">
     
@@ -166,6 +176,15 @@
       </div>
 <!--End of Modal-->
 		</div>
+    <!-- Start map Modal -->
+    <div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-body" id="map"></div>
+
+      </div>
+    </div>
+  </div>
 <!--End of Jumbotron-->
 
 		</div>	
