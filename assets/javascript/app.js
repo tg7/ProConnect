@@ -6,7 +6,7 @@ $( document ).ready(function() {
   nameSearch(name)
 });
 
-$('#userSubmit').click(function() {
+$('#userSubmit2').click(function() {
       $('#dallascity').empty();
       $('#newyorkcity').empty();
       $('#philadelphiacity').empty();
