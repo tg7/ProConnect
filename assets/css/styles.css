@@ -238,6 +238,14 @@ color: white;
     height :400px;
 }
 
+#proconnectlogo {
+    background: none;
+    margin-top: -38px;
+}
 
+#proconnectlogo2 {
+    background: none;
+    opacity: .9;
+}
 
 
