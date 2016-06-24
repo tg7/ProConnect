@@ -37,6 +37,11 @@
  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM">
 
  </script>
+
+ <!-- SC Script-->
+
+ <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+
   <!-- custom js for Map-->
   <script src ="assets/javascript/map.js"></script>
 
@@ -47,9 +52,8 @@
 
   <!--Start Of Navbar-->
 
-  <nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
     <div class="container">
- <!--  <div class="container-fluid"> -->
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -71,7 +75,6 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
-  <!-- </div>/.container-fluid -->
   </div>
 </nav>
 
@@ -81,8 +84,8 @@
 <div class="jumbotron blackBg text-center">
   <div class="row">
     <div class="col-md-12">
-      <h2 class="center">Connect with Producers &amp; Artists Near You</h2>
-      <h4 class="center">Colloborate <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Chat <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Create</h4>
+      <h2>Connect with Producers &amp; Artists Near You</h2>
+      <h4>Colloborate <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Chat <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Create</h4>
     </div>
   </div>
 
@@ -93,105 +96,61 @@
       Show User Map
     </button>
     
-   
-
-
-
-
 
 <!--Begin Tyler code -->
 
 <!-- Trigger the modal with a button -->
-<br><br><br>
-<center><button type="button" id='connectwithprod' class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal2">
-<img src='./assets/images/soundcloudimage.png' id='logo' height='23px' width='30px'/>
-Connect with Producers Near Me</button></center><br><br>
+<br>
+<br>
+<br>
+
+    <button type="button" id='connectWithProd' class="btn btn-lg" data-toggle="modal" data-target="#myModal2">
+    <img src="assets/images/soundcloudimage.png" id='logo' alt="soundcloud-Logo" height="32" width="32">
+    Connect with Producers Near Me</button>
+
+<br>
+<br>
 
 <!-- Modal -->
 <div id="myModal2" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
-    <!-- Modal content-->
+    <!-- User Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">User Tracks</h4>
       </div>
       <div class="modal-body">
+      
+      <div class="panel-body">
+      <div class="form-group">
+        <label for="pwd">Find Users Near...</label>
+          <select class="form-control" id="cityInput">
+          <option hidden>Choose a city...</option>
+          <option value="New York City">New York City</option>
+          <option value="Philadelphia">Philadelphia</option>
+          <option value="Dallas">Dallas</option>
+          <option value="Los Angeles">Los Angeles</option>
+          <option value="Boston">Boston</option>
+          <option value="Chicago">Chicago</option>           
+          </select>
+      </div>
+      <button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
+      </div>
+
+      <div id='dallascity'></div>
+      <div id='newyorkcity'></div>
+      <div id='philadelphiacity'></div>
+      <div id='losangelescity'></div>
+      <div id='bostoncity'></div>
+      <div id='chicagocity'></div>
+
+
+
       <div id='data'></div>
 
-<style>
-.city:hover {
-background: rgba(63, 63, 191, .7);
-}
-
-.city {
-  width: 200px;
-  border-radius: 20px;
-
-}
-
-#logo {
-  border-radius: 3px;
-  background-color: none;
-
-}
-
-#logo:hover {
-  background: none;
-  color: none;
-  background-color: #d58512;
-  background-color: #ff5500;
-  color: white;
-  border-radius: 0px;
-
-
-}
-
-#connectwithprod {
-  border-radius: 15px;
-}
-
-.btn-warning {
-  background-color: #d58512;
-  background-color: #ff5500;
-  color: white;
-  border-radius: 0px;
-
-}
-}
-</style>
-
-
-
-<div class="panel-body">
-<div class="form-group">
-  <label for="pwd">Find Users Near...</label>
-    <select class="form-control" id="cityInput">
-    <option hidden>Choose a city...</option>
-    <option value="New York City">New York City</option>
-    <option value="Philadelphia">Philadelphia</option>
-    <option value="Dallas">Dallas</option>
-    <option value="Los Angeles">Los Angeles</option>
-    <option value="Boston">Boston</option>
-    <option value="Chicago">Chicago</option>           
-    </select>
-</div>
-<button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
-</div>
-
-<div id='dallascity'></div>
-<div id='newyorkcity'></div>
-<div id='philadelphiacity'></div>
-<div id='losangelescity'></div>
-<div id='bostoncity'></div>
-<div id='chicagocity'></div>
-
-
-
-<div id='data'></div>
-
-        <div id="putTheWidgetHere"></div>
+      <div id="putTheWidgetHere"></div>
 
       </div>
       <div class="modal-footer">
@@ -202,276 +161,11 @@ background: rgba(63, 63, 191, .7);
   </div>
 </div>
 
-<script>
-
-$(document).on('click', '.city', function(event){
-  event.preventDefault();
-  var name = $(this).text().replace('@', '');
-  nameSearch(name)
-});
-
-$('#userSubmit').click(function() {
-      $('#dallascity').empty();
-      $('#newyorkcity').empty();
-      $('#philadelphiacity').empty();
-      $('#losangelescity').empty();
-      $('#bostoncity').empty();
-      $('#chicagocity').empty();
-      var city = $('#cityInput').val();
-      var queryUrl = 'https://theproconnect.firebaseio.com/.json?orderBy=%22city%22&equalTo=%22' + city + '%22';
-      $.ajax({url: queryUrl, method:'GET'})
-      .done(function(response){
-        console.log(response);
-      });
-
-
-
-
-dataRef.on("child_added", function(snapshot){
-
-  var city = snapshot.val().city;
-  var genre = snapshot.val().genre;
-  var experience = snapshot.val().experience;
-  var tag = snapshot.val().tag;
-  var email = snapshot.val().email;
-  var tableRow = $('<tr>'); 
-
-  var trainInfo = [snapshot.val().city, snapshot.val().genre, snapshot.val().experience, snapshot.val().tag, snapshot.val().email];
-  //create a for loop to easily create a new table data with  the HTMl from the inputed value 
-    for(var i = 0; i < trainInfo.length;i++){
-    // create a new td
-    var tableData = $('<td>');
-    // add the information from the array to the HTMl of this td
-    tableData.html(trainInfo[i]);
-    // give it an attribute for save measure 
-    tableData.attr('data-id', i);
-    // append current td to table row 
-    tableRow.append(tableData)
-  }
-  // append the new row to the last child of the table body
-  $('#userTable').append(tableRow);
-  var cityData = snapshot.val().city;
-  var tagData = snapshot.val().tag;
-      if ($('#cityInput').val() == 'Dallas') {
-        if (city == 'Dallas') {
-      
-        console.log('Success!')
-        console.log(tagData);
-        $('#dallascity').append('<center> <b> ' + '<p class="city btn-sm btn-primary">' + tagData + '</p>' + '</center> </b>');
-      };
-    
-
-  // return false to prevent constant returning
-  return false;
-// Handle the errors
-};
-
-
-$('#userTable').append(tableRow);
-  var cityData = snapshot.val().city;
-  var tagData = snapshot.val().tag;
-      if ($('#cityInput').val() == 'Boston') {
-        if (city == 'Boston') {
-        console.log('Success!')
-        console.log(tagData);
-        $('#bostoncity').append('<center> <b> ' + '<p class="city btn-sm btn-primary">' + tagData + '</p>' + '</center> </b>');
-      };
-  // return false to prevent constant returning
-  return false;
-// Handle the errors
-    };
-
-$('#userTable').append(tableRow);
-  var cityData = snapshot.val().city;
-  var tagData = snapshot.val().tag;
-      if ($('#cityInput').val() == 'New York City') {
-        if (city == 'New York City') {
-        console.log('Success!')
-        console.log(tagData);
-        $('#newyorkcity').append('<center> <b> ' + '<p class="city btn-sm btn-primary">' + tagData + '</p>' + '</center> </b>');
-      };
-  // return false to prevent constant returning
-  return false;
-// Handle the errors
-    };
-
-
-$('#userTable').append(tableRow);
-  var cityData = snapshot.val().city;
-  var tagData = snapshot.val().tag;
-      if ($('#cityInput').val() == 'Philadelphia') {
-        if (city == 'Philadelphia') {
-        console.log('Success!')
-        console.log(tagData);
-        $('#philadelphiacity').append('<center> <b> ' + '<p class="city btn-sm btn-primary">' + tagData + '</p>' + '</center> </b>');
-      };
-  // return false to prevent constant returning
-  return false;
-// Handle the errors
-    };
-
-$('#userTable').append(tableRow);
-  var cityData = snapshot.val().city;
-  var tagData = snapshot.val().tag;
-      if ($('#cityInput').val() == 'Los Angeles') {
-        if (city == 'Los Angeles') {
-        console.log('Success!')
-        console.log(tagData);
-        $('#losangelescity').append('<center> <b> ' + '<p class="city btn-sm btn-primary">' + tagData + '</p>' + '</center> </b>');
-      };
-  // return false to prevent constant returning
-  return false;
-// Handle the errors
-    };
-
-$('#userTable').append(tableRow);
-  var cityData = snapshot.val().city;
-  var tagData = snapshot.val().tag;
-      if ($('#cityInput').val() == 'Chicago') {
-        if (city == 'Chicago') {
-        console.log('Success!')
-        console.log(tagData);
-        $('#chicagocity').append('<center> <b> ' + '<p class="city btn-sm btn-primary">' + tagData + '</p>' + '</center> </b>');
-      };
-  // return false to prevent constant returning
-  return false;
-// Handle the errors
-    };
-
-
-  });
-});
-
-</script>
-
-
-
-<div id='div1'></div>
-<div id='div2'></div>
-<div id='div3'></div>
-
-<script type="text/javascript">
-
-  var city = '';
-  var genre = '';
-  var experience = '';
-  var tag = '';
-  var email = '';
-
-  var dataRef = new Firebase ('https://theproconnect.firebaseio.com/');
-
-  $('#userSubmit').on('click', function() {
-  city = $('#cityInput').val();
-  genre = $('#genreInput').val();
-  experience = $('#expInput').val();
-  tag = $('#tagInput').val();
-  email = $('#emailInput').val();
-
-//Pushes Data to Firebase
-
-  dataRef.push ({
-    city: city,
-    genre: genre,
-    experience: experience,
-    tag: tag,
-    email: email
-
-  });
-
-// Empties Form After Users Clicks Submit
-
-  $('#cityInput').val('Choose a city...');
-  $('#genreInput').val('Choose a genre...');
-  $('#expInput').val('Choose your experience level...');
-  $('#tagInput').val('');
-  $('#emailInput').val('');
-
-return false;
-
-});
-
-  dataRef.on("child_added", function(snapshot){
-
-  var city = snapshot.val().city;
-  var genre = snapshot.val().genre;
-  var experience = snapshot.val().experience;
-  var tag = snapshot.val().tag;
-  var email = snapshot.val().email;
-  var tableRow = $('<tr>'); 
-
-  var trainInfo = [snapshot.val().city, snapshot.val().genre, snapshot.val().experience, snapshot.val().tag, snapshot.val().email];
-  //create a for loop to easily create a new table data with  the HTMl from the inputed value 
-    for(var i = 0; i < trainInfo.length;i++){
-    // create a new td
-    var tableData = $('<td>');
-    // add the information from the array to the HTMl of this td
-    tableData.html(trainInfo[i]);
-    // give it an attribute for save measure 
-    tableData.attr('data-id', i);
-    // append current td to table row 
-    tableRow.append(tableData)
-  }
-  // append the new row to the last child of the table body
-  $('#userTable').append(tableRow);
-  // return false to prevent constant returning
-  return false;
-// Handle the errors
-}, function(errorObject){
-  console.log("Errors handled: " + errorObject.code)
-
-});
-
-
-
-</script>
-
-
-
-
-
-
-
-
-
-<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-<script type="text/javascript">
-
-$("#submit").on("click", function() {
-  var name = $('#name').val();
-  nameSearch(name);
-  return false;
-});
-
-function nameSearch(name){
-  SC.oEmbed('http://soundcloud.com/' + name, {
- element: document.getElementById('putTheWidgetHere')
- });
-}
-
-function emptyDivs(){
-      $('#userTable').empty();
-      console.log('hi')
-    };
-
-</script>
-
-
-
-
-
 
 <!--end Tyler code -->
-
-
-
-
-
-
-
-
-
-
  
+ <!-- Modal Popup for Userdata-->
+
     <div class="popup front" data-popup="popup-1">
       <div class="popup-inner">
           <div class="panel panel-default">
@@ -561,33 +255,33 @@ function emptyDivs(){
 <!--End of Container-->
 
 <div class="row footer">
-  <div class="container footerText">
-    <div class="col-md-6 text-center borderRight">
+ <div class="container footerText"> <!--class="footerText"-->
+    <div class="col-md-4 text-center borderRight">
     <h3>Meet Our Team</h3>
       <ul>
-        <li class="imageSpace"><a href="https://www.linkedin.com/in/frank-capraro-61072030" target="blank"><img class="imageCorners" src="assets/images/frank.jpg" alt="Frank" height="110" width="110"></a>
+        <li class="imageSpace"><a href="https://www.linkedin.com/in/frank-capraro-61072030" target="blank"><img class="imageCorners" src="assets/images/frank.jpg" alt="Frank" height="90" width="90"></a>
           <h5><a href="https://www.linkedin.com/in/frank-capraro-61072030" target="blank">Frank Capraro</a></h5></li>
-        <li class="imageSpace"><a href="https://www.linkedin.com/in/tgermaine" target="blank"><img class="imageCorners" src="assets/images/todd.jpg" alt="Todd" height="110" width="110"></a>
+        <li class="imageSpace"><a href="https://www.linkedin.com/in/tgermaine" target="blank"><img class="imageCorners" src="assets/images/todd.jpg" alt="Todd" height="90" width="90"></a>
           <h5><a href="https://www.linkedin.com/in/tgermaine" target="blank">Todd Germaine</a></h5></li>
-        <li class="imageSpace"><a href="https://www.linkedin.com/in/tylerfallon" target="blank"><img class="imageCorners" src="assets/images/tyler.jpg" alt="Tyler" height="110" width="110"></a>
+        <li class="imageSpace"><a href="https://www.linkedin.com/in/tylerfallon" target="blank"><img class="imageCorners" src="assets/images/tyler.jpg" alt="Tyler" height="90" width="90"></a>
           <h5><a href="https://www.linkedin.com/in/tylerfallon" target="blank">Tyler Fallon</a></h5></li>
       </ul>
     </div>
-  <div class="col-md-3 text-center">
+  <div class="col-md-4 text-center">
       <h3>References</h3>
       <br>
         <h5><img class="imageCorners" src="assets/images/googleMaps.png" alt="Google Maps" height="24" width="24"><a href="https://www.google.com/work/mapsearth/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=&amp;utm_content=usca%7Cen%7Chybr%7C1001877%7Chv%7Cbk%7Cbrand%7C%7Chp___exact&amp;gclid=COOAypvmvs0CFVNZhgodQesD0A" target="blank"> Google Map API</a></h5>
         <h5><img class="imageCorners" src="assets/images/soundcloud.png" alt="Soundcloud" height="24" width="24"><a href="https://developers.soundcloud.com/docs/api/guide" target="blank"> Soundcloud API</a></h5>
   </div>
   
-  <div class="col-md-3 text-center">
+  <div class="col-md-4 text-center">
       <h3>Follow Us</h3>
       <br>
         <a href="http://facebook.com" target="blank"><img class="logoSpace" src="assets/images/facebook.png" alt="facebook" height="48" width="48"></a>
         <a href="https://github.com/tg7/SoundcloudMap" target="blank"><img class="logoSpace" src="assets/images/github.png" alt="github" height="48" width="48"></a>
         <a href="http://twitter.com" target="blank"><img class="logoSpace" src="assets/images/twitter.png" alt="twitter" height="48" width="48"></a>
     </div>
-  </div>
+   </div> <!--End Of Container-->
 </div>
 
 <div class="row topBorder bottom">
