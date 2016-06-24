@@ -67,3 +67,4 @@ $('#form').validator().on('submit', function (e) {
 
 
 });
+

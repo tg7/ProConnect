@@ -1,4 +1,7 @@
- // be sure to add a div variable & to call the Google maps API
+$(document).ready(function() {
+
+
+  // be sure to add a div variable & to call the Google maps API
  /*<script async defer 
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM&callback=initialize">*/
  // Declare Map variable 
@@ -93,10 +96,11 @@
       };
       // display the map 
       function initialize() {
+        console.log('intiialize');
         // Set the map options 
-        var mapOptions = {
+        var mapOptions = {  
         center: {lat: 36.1998698, lng: -100.7912721},
-        zoom: 9,
+        zoom: 8,
         mapTypeId: google.maps.MapTypeId.TERRAIN
       };
         // using the google maps library to set the map div = to the map variable 
@@ -107,11 +111,18 @@
       }
       // This loads my map on the modal 
       $("#myModal").on("shown.bs.modal", function () {
+        initialize();
         var currentCenter = map.getCenter();  // Get current center before resizing
         google.maps.event.trigger(map, "resize");
         map.setCenter(currentCenter); 
       });// Re-set previous cente});
       // setting the size of a circle using the inforamtion from the json call
       
+//google.maps.event.addDomListener(window, 'load', initialize);
+  
 
 
+
+
+});
+ 
