@@ -57,14 +57,6 @@ return false;
 
 // Start of Validation JS
 
-$('#form').validator().on('submit', function (e) {
-  if (e.isDefaultPrevented()) {
-    // handle the invalid form...
-  } else {
-    // everything looks good!
-  }
-})
-
 
 });
 
