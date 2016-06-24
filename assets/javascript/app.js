@@ -228,3 +228,23 @@ return false;
 
 });
 
+
+
+$("#submit").on("click", function() {
+   var name = $('#name').val();
+   nameSearch(name);
+   return false;
+ });
+ 
+  function nameSearch(name){
+    SC.oEmbed('http://soundcloud.com/' + name, {
+    element: document.getElementById('putTheWidgetHere')
+    });
+  }
+
+ function emptyDivs(){
+    $('#userTable').empty();
+     console.log('hi')
+  };
+ 
+
