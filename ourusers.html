@@ -1,52 +1,32 @@
 <!DOCTYPE html>
 
 <head>
-<title>ProConnect</title>
-
-<!--Google Font CDN-->
-
-<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-
-<!--Bootstrap CDN-->
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-<!--CSS Stylesheet-->
-
-<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-
-<!--Font Awesome CDN-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-<!--Ionicons CDN-->
-<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
-<!--jQuery CDN-->
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-
-<!--Firebase CDN-->
-
-<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
-
-<!-- Latest compiled and minified Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!-- Google Maps API -->
+  <title>ProConnect</title>
+  <!--Google Font CDN-->
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <!--Bootstrap CDN-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!--CSS Stylesheet-->
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+  <!--Font Awesome CDN-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!--Ionicons CDN-->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!--jQuery CDN-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <!--Firebase CDN-->
+  <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- Google Maps API -->
  <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM&callback=initialize">-->
-
- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM">
-
- </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM">
+  </script>
   <!-- custom js for Map-->
   <script src ="assets/javascript/map.js"></script>
-
 </head>
-
 <body>
-  
-
   <!--Start Of Navbar-->
-
   <nav class="navbar navbar-default">
     <div class="container">
  <!--  <div class="container-fluid"> -->
@@ -63,7 +43,6 @@
         <li><a class="navbar-brand logoText" href="#">ProConnect</a></li>
       </ul>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -75,9 +54,7 @@
   <!-- </div>/.container-fluid -->
   </div>
 </nav>
-
   <!--End Of Navbar-->
-
 <!--Jumbotron-->
 <div class="jumbotron blackBg text-center">
   <div class="row">
@@ -86,24 +63,11 @@
       <h4 class="center">Colloborate <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Chat <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Create</h4>
     </div>
   </div>
-
   <br>
-
-   
-   
-
-
-
-
-
-<!--Begin Tyler code -->
-
 <!-- Trigger the modal with a button -->
 <br><br><br>
 <center><button type="button" id='connectwithprod' class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2"><img src='./assets/images/proconnectlogo.png' id='proconnectlogo2' height='50px' width='60px' />
-
 ProConnect User Database</button></center><br><br>
-
 <!-- Modal -->
 <div id="myModal2" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -115,15 +79,141 @@ ProConnect User Database</button></center><br><br>
         <h4 class="modal-title">User Tracks</h4>
       </div>
       <div class="modal-body">
-      
-
-
-
-
-
-
-
-
+<div class="row">
+          <div class="panel panel-success">
+            <div class="panel-heading">   
+            All Users
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>City</th>
+                    <th>Genre</th>
+                    <th>Experience</th>
+                    <th>Tag</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody id="userTable">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+<div id='div1'></div>
+<div id='div2'></div>
+<div id='div3'></div>
+</div>
+    <div class="popup front" data-popup="popup-1">
+      <div class="popup-inner">
+          <div class="panel panel-default">
+            <div class="panel-heading formTop">
+              <h3 class="panel-title"><strong><i class="fa fa-music" aria-hidden="true"></i> Add Your Credentials</strong></h3>
+            </div>
+          <div class="panel-body text-left">
+          <!--Start of Dropdown-->
+              <div class="form-group">
+                  <label for="pwd">Nearest Major City:</label>
+                    <select class="form-control" id="cityInput">
+                      <option hidden>Choose a city...</option>
+                      <option value="New York City">New York City</option>
+                      <option value="Philadelphia">Philadelphia</option>
+                      <option value="Dallas">Dallas</option>
+                      <option value="Los Angeles">Los Angeles</option>
+                      <option value="Boston">Boston</option>
+                      <option value="Chicago">Chicago</option>
+                    </select>
+              </div>
+              <div class="form-group">
+                  <label for="pwd">Production Experience:</label>
+                    <select class="form-control" id="expInput">
+                      <option hidden>Choose your experience level...</option>
+                      <option value="Beginner">Beginner (0-2 Years Exp.)</option>
+                      <option value="Moderate">Moderate (3-6 Years Exp.)</option>
+                      <option value="Expert">Expert (6+ Years Exp.)</option>  
+                    </select>
+              </div>
+              <div class="form-group">
+                  <label for="pwd">Genre:</label>
+                    <select class="form-control" id="genreInput">
+                      <option hidden>Choose a genre...</option>
+                      <option value="House">House</option>
+                      <option value="Trap">Trap</option>
+                      <option value="Chill">Chill</option>
+                      <option value="Hip-Hop">Hip-Hop</option>
+                      <option value="Dubstep">Dubstep</option>
+                      <option value="Future">Future</option>  
+                    </select>
+              </div>
+              <form>
+              <div class="form-group">
+                <label for="">Soundcloud Tag (Ex: @ttfmusic)</label>
+                <input type="text" class="form-control" id="tagInput" placeholder="Enter Soundcloud ID">
+              </div>
+              <div class="form-group">
+                <label for="">Email:</label>
+                <input type="text" class="form-control" id="emailInput" placeholder="example@example.com">
+              </div>
+              <button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
+            </form>
+          </div>
+          </div>
+          <p><a data-popup-close="popup-1" href="#">Close</a></p>
+          <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+      </div>
+<!--End of Modal-->
+    </div>
+    <!-- Start map Modal -->
+    <div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-body" id="map"></div>
+      </div>
+    </div>
+  </div>
+<!--End of Jumbotron-->
+    </div>  
+</div>
+</div>
+<!--End of Container-->
+<div class="row footer">
+  <div class="container footerText">
+    <div class="col-md-6 text-center borderRight">
+    <h3>Meet Our Team</h3>
+      <ul>
+        <li class="imageSpace"><a href="https://www.linkedin.com/in/frank-capraro-61072030" target="blank"><img class="imageCorners" src="assets/images/frank.jpg" alt="Frank" height="110" width="110"></a>
+          <h5><a href="https://www.linkedin.com/in/frank-capraro-61072030" target="blank">Frank Capraro</a></h5></li>
+        <li class="imageSpace"><a href="https://www.linkedin.com/in/tgermaine" target="blank"><img class="imageCorners" src="assets/images/todd.jpg" alt="Todd" height="110" width="110"></a>
+          <h5><a href="https://www.linkedin.com/in/tgermaine" target="blank">Todd Germaine</a></h5></li>
+        <li class="imageSpace"><a href="https://www.linkedin.com/in/tylerfallon" target="blank"><img class="imageCorners" src="assets/images/tyler.jpg" alt="Tyler" height="110" width="110"></a>
+          <h5><a href="https://www.linkedin.com/in/tylerfallon" target="blank">Tyler Fallon</a></h5></li>
+      </ul>
+    </div>
+  <div class="col-md-3 text-center">
+      <h3>References</h3>
+      <br>
+        <h5><img class="imageCorners" src="assets/images/googleMaps.png" alt="Google Maps" height="24" width="24"><a href="https://www.google.com/work/mapsearth/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=&amp;utm_content=usca%7Cen%7Chybr%7C1001877%7Chv%7Cbk%7Cbrand%7C%7Chp___exact&amp;gclid=COOAypvmvs0CFVNZhgodQesD0A" target="blank"> Google Map API</a></h5>
+        <h5><img class="imageCorners" src="assets/images/soundcloud.png" alt="Soundcloud" height="24" width="24"><a href="https://developers.soundcloud.com/docs/api/guide" target="blank"> Soundcloud API</a></h5>
+  </div>
+  <div class="col-md-3 text-center">
+      <h3>Follow Us</h3>
+      <br>
+        <a href="http://facebook.com" target="blank"><img class="logoSpace" src="assets/images/facebook.png" alt="facebook" height="48" width="48"></a>
+        <a href="https://github.com/tg7/SoundcloudMap" target="blank"><img class="logoSpace" src="assets/images/github.png" alt="github" height="48" width="48"></a>
+        <a href="http://twitter.com" target="blank"><img class="logoSpace" src="assets/images/twitter.png" alt="twitter" height="48" width="48"></a>
+    </div>
+  </div>
+</div>
+<div class="row topBorder bottom">
+    <div class="col-md-12 text-center">
+     <p>&copy;2016 ProConnect - All Rights Reserved</p>
+    </div>
+</div>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+<script type="text/javascript" src="assets/javascript/background.js"></script>
+<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+<!--Javascript Code to load current list of users to the page from Firebase -->
 
 <script>
 
@@ -146,9 +236,6 @@ $('#userSubmit').click(function() {
       .done(function(response){
         console.log(response);
       });
-
-
-
 
 dataRef.on("child_added", function(snapshot){
 
@@ -177,18 +264,14 @@ dataRef.on("child_added", function(snapshot){
   var tagData = snapshot.val().tag;
       if ($('#cityInput').val() == 'Dallas') {
         if (city == 'Dallas') {
-      
         console.log('Success!')
         console.log(tagData);
         $('#dallascity').append('<center> <b> ' + '<p class="city btn-sm btn-primary">' + tagData + '</p>' + '</center> </b>');
       };
-    
-
   // return false to prevent constant returning
   return false;
 // Handle the errors
 };
-
 
 $('#userTable').append(tableRow);
   var cityData = snapshot.val().city;
@@ -217,7 +300,6 @@ $('#userTable').append(tableRow);
   return false;
 // Handle the errors
     };
-
 
 $('#userTable').append(tableRow);
   var cityData = snapshot.val().city;
@@ -260,41 +342,8 @@ $('#userTable').append(tableRow);
   return false;
 // Handle the errors
     };
-
-
   });
 });
-
-</script>
-
-<div class="row">
-          <div class="panel panel-success">
-            <div class="panel-heading">   
-            All Users
-            </div>
-            <div class="panel-body">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>City</th>
-                    <th>Genre</th>
-                    <th>Experience</th>
-                    <th>Tag</th>
-                    <th>Email</th>
-                  </tr>
-                </thead>
-                <tbody id="userTable">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-<div id='div1'></div>
-<div id='div2'></div>
-<div id='div3'></div>
-
-<script type="text/javascript">
 
   var city = '';
   var genre = '';
@@ -329,11 +378,8 @@ $('#userTable').append(tableRow);
   $('#expInput').val('Choose your experience level...');
   $('#tagInput').val('');
   $('#emailInput').val('');
-
 return false;
-
 });
-
   dataRef.on("child_added", function(snapshot){
 
   var city = snapshot.val().city;
@@ -365,21 +411,22 @@ return false;
 
 });
 
+$("#submit").on("click", function() {
+  var name = $('#name').val();
+  nameSearch(name);
+  return false;
+});
 
+function nameSearch(name){
+  SC.oEmbed('http://soundcloud.com/' + name, {
+ element: document.getElementById('putTheWidgetHere')
+ });
+}
 
-</script>
-
-
-
-
-
-
-
-
-
-
-<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-<script type="text/javascript">
+function emptyDivs(){
+      $('#userTable').empty();
+      console.log('hi')
+    };
 
 $("#submit").on("click", function() {
   var name = $('#name').val();
@@ -399,221 +446,5 @@ function emptyDivs(){
     };
 
 </script>
-
-
-<style>
-.city:hover {
-background: rgba(63, 63, 191, .7);
-}
-
-.city {
-  width: 200px;
-  border-radius: 20px;
-
-}
-
-#logo {
-  border-radius: 3px;
-  background-color: none;
-
-}
-
-#logo:hover {
-  background: none;
-  color: none;
-  background-color: #d58512;
-  background-color: #ff5500;
-  color: white;
-  border-radius: 0px;
-
-
-}
-
-#connectwithprod {
-  border-radius: 15px;
-}
-
-.btn-warning {
-  background-color: #d58512;
-  background-color: #ff5500;
-  color: white;
-  border-radius: 0px;
-
-}
-}
-</style>
-
-
-</div>
-
-<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-<script type="text/javascript">
-
-$("#submit").on("click", function() {
-  var name = $('#name').val();
-  nameSearch(name);
-  return false;
-});
-
-function nameSearch(name){
-  SC.oEmbed('http://soundcloud.com/' + name, {
- element: document.getElementById('putTheWidgetHere')
- });
-}
-
-function emptyDivs(){
-      $('#userTable').empty();
-      console.log('hi')
-    };
-
-</script>
-
-
-
-
-
-
-<!--end Tyler code -->
-
-
-
-
-
-
-
-
-
-
- 
-    <div class="popup front" data-popup="popup-1">
-      <div class="popup-inner">
-          <div class="panel panel-default">
-            <div class="panel-heading formTop">
-              <h3 class="panel-title"><strong><i class="fa fa-music" aria-hidden="true"></i> Add Your Credentials</strong></h3>
-            </div>
-
-          <div class="panel-body text-left">
-
-          <!--Start of Dropdown-->
-
-              <div class="form-group">
-                  <label for="pwd">Nearest Major City:</label>
-                    <select class="form-control" id="cityInput">
-                      <option hidden>Choose a city...</option>
-                      <option value="New York City">New York City</option>
-                      <option value="Philadelphia">Philadelphia</option>
-                      <option value="Dallas">Dallas</option>
-                      <option value="Los Angeles">Los Angeles</option>
-                      <option value="Boston">Boston</option>
-                      <option value="Chicago">Chicago</option>
-                      
-                    </select>
-              </div>
-
-              <div class="form-group">
-                  <label for="pwd">Production Experience:</label>
-                    <select class="form-control" id="expInput">
-                      <option hidden>Choose your experience level...</option>
-                      <option value="Beginner">Beginner (0-2 Years Exp.)</option>
-                      <option value="Moderate">Moderate (3-6 Years Exp.)</option>
-                      <option value="Expert">Expert (6+ Years Exp.)</option>
-                      
-                    </select>
-              </div>
-
-              <div class="form-group">
-                  <label for="pwd">Genre:</label>
-                    <select class="form-control" id="genreInput">
-                      <option hidden>Choose a genre...</option>
-                      <option value="House">House</option>
-                      <option value="Trap">Trap</option>
-                      <option value="Chill">Chill</option>
-                      <option value="Hip-Hop">Hip-Hop</option>
-                      <option value="Dubstep">Dubstep</option>
-                      <option value="Future">Future</option>
-                      
-                    </select>
-              </div>
-
-              <form>
-              <div class="form-group">
-                <label for="">Soundcloud Tag (Ex: @ttfmusic)</label>
-                <input type="text" class="form-control" id="tagInput" placeholder="Enter Soundcloud ID">
-              </div>
-
-              <div class="form-group">
-                <label for="">Email:</label>
-                <input type="text" class="form-control" id="emailInput" placeholder="example@example.com">
-              </div>
-              
-              <button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
-            </form>
-
-          </div>
-
-          </div>
-          <p><a data-popup-close="popup-1" href="#">Close</a></p>
-          <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
-      </div>
-<!--End of Modal-->
-    </div>
-    <!-- Start map Modal -->
-    <div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-body" id="map"></div>
-
-      </div>
-    </div>
-  </div>
-<!--End of Jumbotron-->
-
-    </div>  
-</div>
-</div>
-
-<!--End of Container-->
-
-<div class="row footer">
-  <div class="container footerText">
-    <div class="col-md-6 text-center borderRight">
-    <h3>Meet Our Team</h3>
-      <ul>
-        <li class="imageSpace"><a href="https://www.linkedin.com/in/frank-capraro-61072030" target="blank"><img class="imageCorners" src="assets/images/frank.jpg" alt="Frank" height="110" width="110"></a>
-          <h5><a href="https://www.linkedin.com/in/frank-capraro-61072030" target="blank">Frank Capraro</a></h5></li>
-        <li class="imageSpace"><a href="https://www.linkedin.com/in/tgermaine" target="blank"><img class="imageCorners" src="assets/images/todd.jpg" alt="Todd" height="110" width="110"></a>
-          <h5><a href="https://www.linkedin.com/in/tgermaine" target="blank">Todd Germaine</a></h5></li>
-        <li class="imageSpace"><a href="https://www.linkedin.com/in/tylerfallon" target="blank"><img class="imageCorners" src="assets/images/tyler.jpg" alt="Tyler" height="110" width="110"></a>
-          <h5><a href="https://www.linkedin.com/in/tylerfallon" target="blank">Tyler Fallon</a></h5></li>
-      </ul>
-    </div>
-  <div class="col-md-3 text-center">
-      <h3>References</h3>
-      <br>
-        <h5><img class="imageCorners" src="assets/images/googleMaps.png" alt="Google Maps" height="24" width="24"><a href="https://www.google.com/work/mapsearth/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=&amp;utm_content=usca%7Cen%7Chybr%7C1001877%7Chv%7Cbk%7Cbrand%7C%7Chp___exact&amp;gclid=COOAypvmvs0CFVNZhgodQesD0A" target="blank"> Google Map API</a></h5>
-        <h5><img class="imageCorners" src="assets/images/soundcloud.png" alt="Soundcloud" height="24" width="24"><a href="https://developers.soundcloud.com/docs/api/guide" target="blank"> Soundcloud API</a></h5>
-  </div>
-  
-  <div class="col-md-3 text-center">
-      <h3>Follow Us</h3>
-      <br>
-        <a href="http://facebook.com" target="blank"><img class="logoSpace" src="assets/images/facebook.png" alt="facebook" height="48" width="48"></a>
-        <a href="https://github.com/tg7/SoundcloudMap" target="blank"><img class="logoSpace" src="assets/images/github.png" alt="github" height="48" width="48"></a>
-        <a href="http://twitter.com" target="blank"><img class="logoSpace" src="assets/images/twitter.png" alt="twitter" height="48" width="48"></a>
-    </div>
-  </div>
-</div>
-
-<div class="row topBorder bottom">
-    <div class="col-md-12 text-center">
-     <p>&copy;2016 ProConnect - All Rights Reserved</p>
-    </div>
-</div>
-
-
-<script type="text/javascript" src="assets/javascript/app.js"></script>
-<script type="text/javascript" src="assets/javascript/background.js"></script>
-
 </body>
-
 </html>

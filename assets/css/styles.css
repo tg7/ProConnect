@@ -248,4 +248,59 @@ color: white;
     opacity: .9;
 }
 
+.city:hover {
+background: rgba(63, 63, 191, .7);
+}
 
+.city {
+  width: 200px;
+  border-radius: 20px;
+
+}
+
+#logo {
+  border-radius: 3px;
+  background-color: none;
+
+}
+
+#logo:hover {
+  background: none;
+  color: none;
+  background-color: #d58512;
+  background-color: #ff5500;
+  color: white;
+  border-radius: 0px;
+
+
+}
+
+#connectwithprod {
+  border-radius: 15px;
+}
+
+.btn-warning {
+  background-color: #d58512;
+  background-color: #ff5500;
+  color: white;
+  border-radius: 0px;
+
+}
+
+
+#contactform {
+  margin: 0px 0px 0px 0px;
+  padding: 10px;
+  height: 5%;
+  width: 70%;
+  padding-top: 30px;
+
+}
+
+#footerdiv {
+  margin-top: 150px;
+}
+
+#contactustext {
+  font-size: 40px;
+}

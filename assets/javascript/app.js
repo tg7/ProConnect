@@ -20,7 +20,6 @@ $('#userSubmit').click(function() {
         console.log(response);
       });
 
-
 dataRef.on("child_added", function(snapshot){
 
   var city = snapshot.val().city;
@@ -143,7 +142,6 @@ $('#userTable').append(tableRow);
   var experience = '';
   var tag = '';
   var email = '';
-
   var dataRef = new Firebase ('https://theproconnect.firebaseio.com/');
 
   $('#userSubmit').on('click', function() {
@@ -152,39 +150,29 @@ $('#userTable').append(tableRow);
   experience = $('#expInput').val();
   tag = $('#tagInput').val();
   email = $('#emailInput').val();
-
 //Pushes Data to Firebase
-
   dataRef.push ({
     city: city,
     genre: genre,
     experience: experience,
     tag: tag,
     email: email
-
   });
-
 // Empties Form After Users Clicks Submit
-
   $('#cityInput').val('Choose a city...');
   $('#genreInput').val('Choose a genre...');
   $('#expInput').val('Choose your experience level...');
   $('#tagInput').val('');
   $('#emailInput').val('');
-
 return false;
-
 });
-
   dataRef.on("child_added", function(snapshot){
-
   var city = snapshot.val().city;
   var genre = snapshot.val().genre;
   var experience = snapshot.val().experience;
   var tag = snapshot.val().tag;
   var email = snapshot.val().email;
   var tableRow = $('<tr>'); 
-
   var trainInfo = [snapshot.val().city, snapshot.val().genre, snapshot.val().experience, snapshot.val().tag, snapshot.val().email];
   //create a for loop to easily create a new table data with  the HTMl from the inputed value 
     for(var i = 0; i < trainInfo.length;i++){
@@ -204,47 +192,37 @@ return false;
 // Handle the errors
 }, function(errorObject){
   console.log("Errors handled: " + errorObject.code)
-
 });
-
-
 //----- OPEN Modal
     $('[data-popup-open]').on('click', function(e)  {
         var targeted_popup_class = jQuery(this).attr('data-popup-open');
         $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
         console.log('Work');
- 
         e.preventDefault();
     });
- 
     //----- CLOSE
     $('[data-popup-close]').on('click', function(e)  {
         var targeted_popup_class = jQuery(this).attr('data-popup-close');
         $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
- 
         e.preventDefault();
     });
-
-
 });
-
-
-
 $("#submit").on("click", function() {
    var name = $('#name').val();
    nameSearch(name);
    return false;
  });
- 
   function nameSearch(name){
     SC.oEmbed('http://soundcloud.com/' + name, {
     element: document.getElementById('putTheWidgetHere')
     });
   }
-
  function emptyDivs(){
     $('#userTable').empty();
      console.log('hi')
   };
  
+
+
+
 
