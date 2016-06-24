@@ -43,7 +43,7 @@
 </head>
 
 <body>
-	
+  
 
   <!--Start Of Navbar-->
 
@@ -88,11 +88,7 @@
 
   <br>
 
-    <div class="btn btn-lg btn-success" data-popup-open="popup-1" id="dataButton">Sign Up!</div>
-    <button type="button" class="btn btn-primary btn-lg mapbutton" data-toggle="modal" data-target="#myModal">
-      Show User Map
-    </button>
-    
+   
    
 
 
@@ -103,9 +99,9 @@
 
 <!-- Trigger the modal with a button -->
 <br><br><br>
-<center><button type="button" id='connectwithprod' class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal2">
-<img src='./assets/images/soundcloudimage.png' id='logo' height='23px' width='30px'/>
-Connect with Producers Near Me</button></center><br><br>
+<center><button type="button" id='connectwithprod' class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+
+ProConnect User Database</button></center><br><br>
 
 <!-- Modal -->
 <div id="myModal2" class="modal fade" role="dialog">
@@ -118,89 +114,15 @@ Connect with Producers Near Me</button></center><br><br>
         <h4 class="modal-title">User Tracks</h4>
       </div>
       <div class="modal-body">
-      <div id='data'></div>
-
-<style>
-.city:hover {
-background: rgba(63, 63, 191, .7);
-}
-
-.city {
-  width: 200px;
-  border-radius: 20px;
-
-}
-
-#logo {
-  border-radius: 3px;
-  background-color: none;
-
-}
-
-#logo:hover {
-  background: none;
-  color: none;
-  background-color: #d58512;
-  background-color: #ff5500;
-  color: white;
-  border-radius: 0px;
-
-
-}
-
-#connectwithprod {
-  border-radius: 15px;
-}
-
-.btn-warning {
-  background-color: #d58512;
-  background-color: #ff5500;
-  color: white;
-  border-radius: 0px;
-
-}
-}
-</style>
+      
 
 
 
-<div class="panel-body">
-<div class="form-group">
-  <label for="pwd">Find Users Near...</label>
-    <select class="form-control" id="cityInput">
-    <option hidden>Choose a city...</option>
-    <option value="New York City">New York City</option>
-    <option value="Philadelphia">Philadelphia</option>
-    <option value="Dallas">Dallas</option>
-    <option value="Los Angeles">Los Angeles</option>
-    <option value="Boston">Boston</option>
-    <option value="Chicago">Chicago</option>           
-    </select>
-</div>
-<button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
-</div>
-
-<div id='dallascity'></div>
-<div id='newyorkcity'></div>
-<div id='philadelphiacity'></div>
-<div id='losangelescity'></div>
-<div id='bostoncity'></div>
-<div id='chicagocity'></div>
 
 
 
-<div id='data'></div>
 
-        <div id="putTheWidgetHere"></div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 <script>
 
@@ -344,7 +266,28 @@ $('#userTable').append(tableRow);
 
 </script>
 
-
+<div class="row">
+          <div class="panel panel-success">
+            <div class="panel-heading">   
+            All Users
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>City</th>
+                    <th>Genre</th>
+                    <th>Experience</th>
+                    <th>Tag</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody id="userTable">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 
 <div id='div1'></div>
 <div id='div2'></div>
@@ -432,6 +375,75 @@ return false;
 
 
 
+
+
+<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+<script type="text/javascript">
+
+$("#submit").on("click", function() {
+  var name = $('#name').val();
+  nameSearch(name);
+  return false;
+});
+
+function nameSearch(name){
+  SC.oEmbed('http://soundcloud.com/' + name, {
+ element: document.getElementById('putTheWidgetHere')
+ });
+}
+
+function emptyDivs(){
+      $('#userTable').empty();
+      console.log('hi')
+    };
+
+</script>
+
+
+<style>
+.city:hover {
+background: rgba(63, 63, 191, .7);
+}
+
+.city {
+  width: 200px;
+  border-radius: 20px;
+
+}
+
+#logo {
+  border-radius: 3px;
+  background-color: none;
+
+}
+
+#logo:hover {
+  background: none;
+  color: none;
+  background-color: #d58512;
+  background-color: #ff5500;
+  color: white;
+  border-radius: 0px;
+
+
+}
+
+#connectwithprod {
+  border-radius: 15px;
+}
+
+.btn-warning {
+  background-color: #d58512;
+  background-color: #ff5500;
+  color: white;
+  border-radius: 0px;
+
+}
+}
+</style>
+
+
+</div>
 
 <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
 <script type="text/javascript">
@@ -543,7 +555,7 @@ function emptyDivs(){
           <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
       </div>
 <!--End of Modal-->
-		</div>
+    </div>
     <!-- Start map Modal -->
     <div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -555,8 +567,9 @@ function emptyDivs(){
   </div>
 <!--End of Jumbotron-->
 
-		</div>	
-
+    </div>  
+</div>
+</div>
 
 <!--End of Container-->
 

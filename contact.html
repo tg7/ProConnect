@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<head>
+<title>ProConnect</title>
+
+<!--Google Font CDN-->
+
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+<!--Bootstrap CDN-->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!--CSS Stylesheet-->
+
+<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+<!--Font Awesome CDN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!--Ionicons CDN-->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+<!--jQuery CDN-->
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<!--Firebase CDN-->
+
+<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+
+<!-- Latest compiled and minified Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Google Maps API -->
+ <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM&callback=initialize">-->
+
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxR5SgHlsHnIOB4A_I2SfLcFhOt9CYLMM">
+
+ </script>
+  <!-- custom js for Map-->
+  <script src ="assets/javascript/map.js"></script>
+
+</head>
+
+<body>
+	
+
+  <!--Start Of Navbar-->
+
+  <nav class="navbar navbar-default">
+    <div class="container">
+ <!--  <div class="container-fluid"> -->
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> 
+      <ul>
+        <li><a class="navbar-brand logoText" href="#">ProConnect</a></li>
+      </ul>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="frontend.html">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="ourusers.html">Our Users</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  <!-- </div>/.container-fluid -->
+  </div>
+</nav>
+
+  <!--End Of Navbar-->
+
+<!--Jumbotron-->
+<div class="jumbotron blackBg text-center">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="center">Connect with Producers &amp; Artists Near You</h2>
+      <h4 class="center">Colloborate <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Chat <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Create</h4>
+    </div>
+  </div>
+
+  <br>
+  <center>
+  <div id='contactform'>
+  <div class='container'>
+  <div class='jumbotron'>
+<form id="contact-form" method="post" action="contact.php" role="form">
+
+    <div class="messages"></div>
+
+    <div class="controls">
+  <div class="row">
+            <div class="col-md-12">
+            <p id='contactustext'>Contact Us</p>
+            </div>
+            </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_name">Name*</label>
+                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+          
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_email">Email *</label>
+                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_message">Message *</label>
+                    <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-success btn-send" value="Send message">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-muted"><strong>*</strong> These fields are required.</p>
+            </div>
+        </div>
+    </div>
+    </center>
+
+    <br>
+<br>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+  
+<style>
+#contactform {
+  margin: 0px 0px 0px 0px;
+  padding: 10px;
+  height: 5%;
+  width: 70%;
+  background: rgba(204, 204, 204, 0.4);
+  background-color: none;
+  padding-top: 30px;
+
+}
+
+#footerdiv {
+  margin-top: 150px;
+}
+
+#contactustext {
+  font-size: 40px;
+}
+
+
+</style>
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <div class="popup front" data-popup="popup-1">
+      <div class="popup-inner">
+          <div class="panel panel-default">
+            <div class="panel-heading formTop">
+              <h3 class="panel-title"><strong><i class="fa fa-music" aria-hidden="true"></i> Add Your Credentials</strong></h3>
+            </div>
+
+          <div class="panel-body text-left">
+
+          <!--Start of Dropdown-->
+
+              <div class="form-group">
+                  <label for="pwd">Nearest Major City:</label>
+                    <select class="form-control" id="cityInput">
+                      <option hidden>Choose a city...</option>
+                      <option value="New York City">New York City</option>
+                      <option value="Philadelphia">Philadelphia</option>
+                      <option value="Dallas">Dallas</option>
+                      <option value="Los Angeles">Los Angeles</option>
+                      <option value="Boston">Boston</option>
+                      <option value="Chicago">Chicago</option>
+                      
+                    </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="pwd">Production Experience:</label>
+                    <select class="form-control" id="expInput">
+                      <option hidden>Choose your experience level...</option>
+                      <option value="Beginner">Beginner (0-2 Years Exp.)</option>
+                      <option value="Moderate">Moderate (3-6 Years Exp.)</option>
+                      <option value="Expert">Expert (6+ Years Exp.)</option>
+                      
+                    </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="pwd">Genre:</label>
+                    <select class="form-control" id="genreInput">
+                      <option hidden>Choose a genre...</option>
+                      <option value="House">House</option>
+                      <option value="Trap">Trap</option>
+                      <option value="Chill">Chill</option>
+                      <option value="Hip-Hop">Hip-Hop</option>
+                      <option value="Dubstep">Dubstep</option>
+                      <option value="Future">Future</option>
+                      
+                    </select>
+              </div>
+
+              <form>
+              <div class="form-group">
+                <label for="">Soundcloud Tag (Ex: @ttfmusic)</label>
+                <input type="text" class="form-control" id="tagInput" placeholder="Enter Soundcloud ID">
+              </div>
+
+              <div class="form-group">
+                <label for="">Email:</label>
+                <input type="text" class="form-control" id="emailInput" placeholder="example@example.com">
+              </div>
+              
+              <button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
+            </form>
+
+          </div>
+
+          </div>
+          <p><a data-popup-close="popup-1" href="#">Close</a></p>
+          <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+      </div>
+<!--End of Modal-->
+		</div>
+    <!-- Start map Modal -->
+    <div class="modal fade popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-body" id="map"></div>
+
+      </div>
+    </div>
+  </div>
+<!--End of Jumbotron-->
+
+		</div>	
+
+
+<!--End of Container-->
+<br>
+<br>
+<div id='footerdiv'>
+<div class="row footer">
+  <div class="container footerText">
+    <div class="col-md-6 text-center borderRight">
+    <h3>Meet Our Team</h3>
+      <ul>
+        <li class="imageSpace"><a href="https://www.linkedin.com/in/frank-capraro-61072030" target="blank"><img class="imageCorners" src="assets/images/frank.jpg" alt="Frank" height="110" width="110"></a>
+          <h5><a href="https://www.linkedin.com/in/frank-capraro-61072030" target="blank">Frank Capraro</a></h5></li>
+        <li class="imageSpace"><a href="https://www.linkedin.com/in/tgermaine" target="blank"><img class="imageCorners" src="assets/images/todd.jpg" alt="Todd" height="110" width="110"></a>
+          <h5><a href="https://www.linkedin.com/in/tgermaine" target="blank">Todd Germaine</a></h5></li>
+        <li class="imageSpace"><a href="https://www.linkedin.com/in/tylerfallon" target="blank"><img class="imageCorners" src="assets/images/tyler.jpg" alt="Tyler" height="110" width="110"></a>
+          <h5><a href="https://www.linkedin.com/in/tylerfallon" target="blank">Tyler Fallon</a></h5></li>
+      </ul>
+    </div>
+  <div class="col-md-3 text-center">
+      <h3>References</h3>
+      <br>
+        <h5><img class="imageCorners" src="assets/images/googleMaps.png" alt="Google Maps" height="24" width="24"><a href="https://www.google.com/work/mapsearth/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=&amp;utm_content=usca%7Cen%7Chybr%7C1001877%7Chv%7Cbk%7Cbrand%7C%7Chp___exact&amp;gclid=COOAypvmvs0CFVNZhgodQesD0A" target="blank"> Google Map API</a></h5>
+        <h5><img class="imageCorners" src="assets/images/soundcloud.png" alt="Soundcloud" height="24" width="24"><a href="https://developers.soundcloud.com/docs/api/guide" target="blank"> Soundcloud API</a></h5>
+  </div>
+  
+  <div class="col-md-3 text-center">
+      <h3>Follow Us</h3>
+      <br>
+        <a href="http://facebook.com" target="blank"><img class="logoSpace" src="assets/images/facebook.png" alt="facebook" height="48" width="48"></a>
+        <a href="https://github.com/tg7/SoundcloudMap" target="blank"><img class="logoSpace" src="assets/images/github.png" alt="github" height="48" width="48"></a>
+        <a href="http://twitter.com" target="blank"><img class="logoSpace" src="assets/images/twitter.png" alt="twitter" height="48" width="48"></a>
+    </div>
+  </div>
+</div>
+
+<div class="row topBorder bottom">
+    <div class="col-md-12 text-center">
+     <p>&copy;2016 ProConnect - All Rights Reserved</p>
+    </div>
+</div>
+</div>
+
+
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+<script type="text/javascript" src="assets/javascript/background.js"></script>
+
+</body>
+
+</html>

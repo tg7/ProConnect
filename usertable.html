@@ -19,74 +19,10 @@
 
 
 
-<!-- Trigger the modal with a button -->
-<br>
-<center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Find Users Near Me</button></center><br><br>
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">User Tracks</h4>
-      </div>
-      <div class="modal-body">
-      <div id='data'></div>
-
-<style>
-.city:hover {
-background: rgba(63, 63, 191, .7);
-}
-
-.city {
-  width: 200px;
-  border-radius: 20px;
-
-}
-</style>
 
 
 
-<div class="panel-body">
-<div class="form-group">
-  <label for="pwd">Find Users Near...</label>
-    <select class="form-control" id="cityInput">
-    <option hidden>Choose a city...</option>
-    <option value="New York City">New York City</option>
-    <option value="Philadelphia">Philadelphia</option>
-    <option value="Dallas">Dallas</option>
-    <option value="Los Angeles">Los Angeles</option>
-    <option value="Boston">Boston</option>
-    <option value="Chicago">Chicago</option>           
-    </select>
-</div>
-<button type="submit" class="btn btn-success" id="userSubmit">Submit</button>
-</div>
 
-<div id='dallascity'></div>
-<div id='newyorkcity'></div>
-<div id='philadelphiacity'></div>
-<div id='losangelescity'></div>
-<div id='bostoncity'></div>
-<div id='chicagocity'></div>
-
-
-
-<div id='data'></div>
-
-        <div id="putTheWidgetHere"></div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 <script>
 
@@ -334,23 +270,6 @@ return false;
 
 
 
-<div class="row">
-  <div class='col-md-12'>
-        <div class="panel panel-success">
-          <div class="panel-heading">User Search</div>
-            <div class="panel-body">
-              <form>
-                <div class="form-group">
-                  <label for="name">Soundcloud Name</label>
-                  <input type="text" class="form-control" id="name" placeholder="">
-                </div>
-    
-              <button type="submit" class="btn btn-primary" id="submit">Submit</button> 
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 
