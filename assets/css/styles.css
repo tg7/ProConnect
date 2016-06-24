@@ -30,6 +30,35 @@ img {
 
 }
 
+
+.city:hover {
+
+background: rgba(51,122,183, 0.85);
+
+}
+
+.city {
+  width: 200px;
+  border-radius: 20px;
+
+}
+
+#logo {
+  border-radius: 3px;
+  background: none;
+
+}
+
+#connectWithProd {
+  border-radius: 10px;
+  background-color: #ff5500;
+  color: white;
+}
+
+#connectWithProd:hover {
+ background: rgba(235, 85, 0, .95);
+}
+
 /* Classes */
 
 
@@ -84,11 +113,6 @@ padding: 5px;
 
 }
 
-.center {
-
-	text-align: center;
-}
-
 .footer {
 
 	background-color: black;
@@ -121,7 +145,8 @@ img:hover {
 
 .footerText {
 
-	margin: 20px 0px 20px 0px;
+	padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .topBorder {
@@ -212,5 +237,7 @@ color: white;
 #map{
     height :400px;
 }
+
+
 
 
